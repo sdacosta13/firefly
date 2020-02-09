@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="register.css">
+</head>
+<body>
+<div class="registerPart">
+    <div class="register">
+        <div class="header">
+            Sign&nbsp;&nbsp;Up
+        </div>
+        <label>
+            <input type="text" value="email" name="email" class="email" onfocus="if(value==='email'){value=''; this.style.color='#000'}" onblur="if(value===''){value='email'; this.style.color='#adadad'}">
+        </label>
+        <label>
+            <input type="text" value="username" name="username" class="username" onfocus="if(value==='username'){value=''; this.style.color='#000'}" onblur="if(value===''){value='username'; this.style.color='#adadad'}">
+        </label>
+        <label>
+            <input type="text" value="password" name="password" class="password" onfocus="if(value==='password'){value=''; this.style.color='#000'; type='password'}" onblur="if(value===''){value='password'; this.style.color='#adadad'; type='text'}">
+        </label>
+        <label>
+            <input type="text" value="confirm password" name="password" class="confirmPassword" onfocus="if(value==='confirm password'){value=''; this.style.color='#000'; type='password'}" onblur="if(value===''){value='confirm password'; this.style.color='#adadad'; type='text'}">
+        </label>
+        <input type="submit" value="Sign Up" class="register">
+        <div class="haveAccount">
+            <a href="login.html">Have an account</a>
+        </div>
+    </div>
+    <div class="background">
+        <div class="firefly_pic">
+            <img src="firefly%20original.jpg" alt="firefly">
+        </div>
+        <div class="firefly_des">
+            <img src="firefly%20words.jpg" alt="description">
+        </div>
+    </div>
+</div>
+</body>
+</html>
