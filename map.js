@@ -2,12 +2,13 @@
 var infoWindow;
 var fogOverlay;
 function initMap() {
-  // The location of Uluru
-  var uluru = {lat: 53.467539, lng: -2.233927};
-  var uluru2 = {lat: 53.468634, lng: -2.235898};
-  // The map, centered at Uluru
+
+  // The location of our markers
+  var kilburn = {lat: 53.467539, lng: -2.233927};
+  var building2 = {lat: 53.468634, lng: -2.235898};
+  // The map, centered at the Kilburn building
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 17, maxZoom: 17, minZoom: 17, center: uluru, disableDefaultUI: false,
+      document.getElementById('map'), {zoom: 17, maxZoom: 17, minZoom: 17, center: kilburn, disableDefaultUI: false,
       zoomControl: false,
       mapTypeControl: false,
       scaleControl: false,
@@ -44,9 +45,9 @@ function initMap() {
     infoWindow.open(map);
   }
 
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
-  var marker2 = new google.maps.Marker({position: uluru2, map: map});
+  // The marker, positioned at Kilburn building
+  var marker = new google.maps.Marker({position: kilburn, map: map});
+  var marker2 = new google.maps.Marker({position: building2, map: map});
   var imageBounds = {
     north: 53.468755,
     south: 53.405814,
