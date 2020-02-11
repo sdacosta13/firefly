@@ -24,9 +24,7 @@ function initMap() {
           lng: position.coords.longitude
         };
 
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        infoWindow.open(map);
+        var person = new google.maps.Marker({position: pos, map: map});
         map.setCenter(pos);
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
@@ -46,7 +44,7 @@ function initMap() {
   }
 
   // The markers, positioned at the buidlings we are using
-  var marker = new google.maps.Marker({position: kilburn, map: map});
+  var kilburnMarker = new google.maps.Marker({position: kilburn, map: map});
   var marker2 = new google.maps.Marker({position: building2, map: map});
   var imageBounds = {
     north: 53.468755,
