@@ -1,7 +1,7 @@
-// Initialize and add the map
-var infoWindow;
-var fogOverlay;
 function initMap() {
+  // Initialize and add the map
+  var infoWindow;
+  var fogOverlay;
 
   // The location of our markers
   var kilburn = {lat: 53.467539, lng: -2.233927};
@@ -45,7 +45,7 @@ function initMap() {
     infoWindow.open(map);
   }
 
-  // The marker, positioned at Kilburn building
+  // The markers, positioned at the buidlings we are using
   var marker = new google.maps.Marker({position: kilburn, map: map});
   var marker2 = new google.maps.Marker({position: building2, map: map});
   var imageBounds = {
