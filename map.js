@@ -2,6 +2,10 @@ function initMap() {
   // Initialize and add the map
   var infoWindow;
 
+  // The location of our markers
+  var kilburn = {lat: 53.467539, lng: -2.233927};
+  var building2 = {lat: 53.468634, lng: -2.235898};
+
   // The map, centered at the Kilburn building
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 17, maxZoom: 17, minZoom: 17, center: kilburn, disableDefaultUI: false,
@@ -13,10 +17,6 @@ function initMap() {
       fullscreenControl: false,});
   infoWindow = new google.maps.InfoWindow;
 
-  // The location of our markers
-  var kilburn = {lat: 53.467539, lng: -2.233927};
-  var building2 = {lat: 53.468634, lng: -2.235898};
-
   // The markers, positioned at the buidlings we are using
   var kilburnMarker = new google.maps.Marker({position: kilburn, map: map});
   var marker2 = new google.maps.Marker({position: building2, map: map});
@@ -24,6 +24,7 @@ function initMap() {
   createFog(map);
 
   if (navigator.geolocation) {
+      // Repeatedly gets the user's location
       navigator.geolocation.watchPosition(function(position) {
         var pos = {
           lat: position.coords.latitude,
@@ -50,6 +51,7 @@ function initMap() {
 
 }
 
+// Creates the fog overlay on the map
 function createFog(map) {
   var imageBounds = {
     north: 53.468755,
