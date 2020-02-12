@@ -12,3 +12,4 @@
         // header("Location: http://localhost:63342/groupWeb/login.html");
         echo ("<p>username or password incorrect</p>");
     }
+?>
