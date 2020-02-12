@@ -56,10 +56,10 @@ function initMap() {
 // Creates the fog overlay on the map
 function createFog(map) {
   var imageBounds = {
-    north: 53.468755,
-    south: 53.405814,
-    east: -2.230045,
-    west: -2.244038,
+    north: 53.477281,
+    south: 53.457807,
+    east: -2.218672,
+    west: -2.238933,
   };
   var fogOverlay;
   fogOverlay = new google.maps.GroundOverlay(
