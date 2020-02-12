@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+    <div class="loginPart">
+        <div class="login">
+            <div class="header">
+                Log&nbsp;&nbsp;in
+            </div>
+            <form action="login.php" method="POST">
+                <label>
+                    <input type="text" value="username" name="username" class="username" onfocus="if(value==='username'){value=''; this.style.color='#000'}" onblur="if(value===''){value='username'; this.style.color='#adadad'}">
+                </label>
+                <label>
+                    <input type="text" value="password" name="password" class="password" onfocus="if(value==='password'){value=''; this.style.color='#000'; type='password'}" onblur="if(value===''){value='password'; this.style.color='#adadad'; type='text'}">
+                </label>
+                <input type="submit" value="LOG IN" class="login">
+            </form>
+            <div class="createAccount">
+                <a href="register.html">Create a free account</a>
+            </div>
+            <div class="forgotPassword">
+                <a href="">Forgot password</a>
+            </div>
+        </div>
+        <div class="background">
+            <div class="firefly_pic">
+                <img src="firefly%20original.jpg" alt="firefly">
+             </div>
+            <div class="firefly_des">
+                <img src="firefly%20words.jpg" alt="description">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
