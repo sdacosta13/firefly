@@ -4,7 +4,8 @@ function initMap() {
 
   // The location of our markers
   var kilburn = {lat: 53.467539, lng: -2.233927};
-  var building2 = {lat: 53.468634, lng: -2.235898};
+  var museum = {lat: 53.466341, lng: -2.234195};
+  var union = {lat: 53.464374, lng: -2.232154};
 
   // The map, centered at the Kilburn building
   var map = new google.maps.Map(
@@ -19,7 +20,8 @@ function initMap() {
 
   // The markers, positioned at the buidlings we are using
   var kilburnMarker = new google.maps.Marker({position: kilburn, map: map});
-  var marker2 = new google.maps.Marker({position: building2, map: map});
+  var museumMarker = new google.maps.Marker({position: museum, map: map});
+  var unionMarker = new google.maps.Marker({position: union, map: map});
 
   createFog(map);
 
