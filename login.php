@@ -3,7 +3,6 @@
     <title> Firefly </title>
   </html>
   <body>
-    <p> Test </p>
     <?php
         $username = $_POST['username'];
         $password = $_POST['password'];
