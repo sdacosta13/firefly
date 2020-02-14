@@ -59,7 +59,7 @@ function createFog(map) {
     north: 53.477281,
     south: 53.457807,
     east: -2.218672,
-    west: -2.238933,
+    west: -2.244703,
   };
   var fogOverlay;
   fogOverlay = new google.maps.GroundOverlay(
