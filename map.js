@@ -36,12 +36,6 @@ function initMap() {
           lng: position.coords.longitude
         };
 
-        // Remove previous markers
-        //if (person !== null) {
-          //person.setMap(null);
-          //person = null;
-        //}
-
         // Set marker for user's location
         if (person === null) {
           person = new google.maps.Marker({position: pos, map: map});
