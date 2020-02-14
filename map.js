@@ -8,6 +8,7 @@ function initMap() {
   var kilburn = {lat: 53.467539, lng: -2.233927};
   var museum = {lat: 53.466341, lng: -2.234195};
   var union = {lat: 53.464374, lng: -2.232154};
+  var markerLocations = [kilburn, museum, union];
 
   // The map, centered at the Kilburn building
   var map = new google.maps.Map(
@@ -36,14 +37,25 @@ function initMap() {
         };
 
         // Remove previous markers
-        if (person !== null) {
-          person.setMap(null);
-          person = null;
-        }
+        //if (person !== null) {
+          //person.setMap(null);
+          //person = null;
+        //}
 
         // Set marker for user's location
-        person = new google.maps.Marker({position: pos, map: map});
+        if (person === null) {
+          person = new google.maps.Marker({position: pos, map: map});
+        } else {
+          person.setPosition(pos);
+        }
+
         map.setCenter(pos);
+
+        // Check if user is near buildings
+        for (i = 0; i < markerLocations.length; i++) {
+
+          //alert(i);
+        }
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
