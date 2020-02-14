@@ -1,6 +1,8 @@
 function initMap() {
   // Initialize and add the map
   var infoWindow;
+  var person = null;
+  var pos;
 
   // The location of our markers
   var kilburn = {lat: 53.467539, lng: -2.233927};
@@ -28,12 +30,19 @@ function initMap() {
   if (navigator.geolocation) {
       // Repeatedly gets the user's location
       navigator.geolocation.watchPosition(function(position) {
-        var pos = {
+        pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
 
-        var person = new google.maps.Marker({position: pos, map: map});
+        // Remove previous markers
+        if (person !== null) {
+          person.setMap(null);
+          person = null;
+        }
+
+        // Set marker for user's location
+        person = new google.maps.Marker({position: pos, map: map});
         map.setCenter(pos);
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
