@@ -25,6 +25,7 @@ function initMap() {
   var kilburnMarker = new google.maps.Marker({position: kilburn, map: map});
   var museumMarker = new google.maps.Marker({position: museum, map: map});
   var unionMarker = new google.maps.Marker({position: union, map: map});
+  var markers = [kilburnMarker, museumMarker, unionMarker];
 
   createFog(map);
 
@@ -48,7 +49,11 @@ function initMap() {
         // Check if user is near buildings
         for (i = 0; i < markerLocations.length; i++) {
           if ((Math.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.01)) {
-            alert("You have found a building!");
+            var alertMessage = "You have found a building"
+            markerLocations.splice(i, 1);
+            markers[i].setMap(null);
+            markers.splice(i, 1);
+            alert(alertMessage);
           }
         }
       }, function() {
