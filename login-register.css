@@ -16,7 +16,28 @@ div.loginPart{
     box-shadow: 5px 5px #555;
 }
 
+div.registerPart{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 450px;
+    border-radius: 5px;
+    margin-left: -400px;
+    margin-top: -225px;
+    box-shadow: 5px 5px #555;
+}
+
 div.login{
+    position: relative;
+    float: right;
+    width: 300px;
+    height: 450px;
+    border-radius: 0 5px 5px 0;
+    background-color: #eee;
+}
+
+div.register{
     position: relative;
     float: right;
     width: 300px;
@@ -44,12 +65,57 @@ div.background{
     color: #279b88;
 }
 
+.email{
+    position: relative;
+    left: 50px;
+    top: 50px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.username-register{
+    position: relative;
+    left: 50px;
+    top: 80px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
 .username{
     position: relative;
     left: 50px;
     top: 80px;
     width: 200px;
     height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.password-register{
+    position: relative;
+    left: 50px;
+    top: 110px;
+    width: 200px;
+    height: 30px;
     padding-left: 5px;
     padding-right: 5px;
     border-width: 0;
@@ -74,9 +140,34 @@ div.background{
     background-color: #eee;
 }
 
+.confirmPassword{
+    position: relative;
+    left: 50px;
+    top: 140px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
 .createAccount{
     position: relative;
     top: 205px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height:27px;
+    background-color: #eee;
+}
+
+.haveAccount{
+    position: relative;
+    top: 190px;
     font-family: Arial, sans-serif;
     font-size: 12px;
     text-align: center;
@@ -141,9 +232,17 @@ input.login{
     cursor: pointer;
 }
 
-p{
+input.register{
     position: relative;
-    z-index: 2;
-    left: 300px;
-    top: 300px;
+    left: 50px;
+    top: 170px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #279b88;
+    border-radius: 10px;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    color: #279b88;
+    background-color: #eee;
+    cursor: pointer;
 }
