@@ -10,6 +10,12 @@ function initMap() {
   var union = {lat: 53.464374, lng: -2.232154};
   var markerLocations = [kilburn, museum, union];
 
+  // The description for each building
+  var kilburnDescription = "This is the Kilburn building, the building for Computer Science at the University of Manchester. \nThe building is named after Tom Kilburn, a famous mathematician and computer scienctist who worked on the world's first electronic stored-program computer, the Manchester Baby";
+  var museumDescription = "This is the Manchester Museum";
+  var unionDescription = "This is the student's union for the University of Manchester";
+  var descriptions = [kilburnDescription, museumDescription, unionDescription];
+
   // The map, centered at the Kilburn building
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 17, maxZoom: 17, minZoom: 17, center: kilburn, disableDefaultUI: false,
@@ -49,10 +55,19 @@ function initMap() {
         // Check if user is near buildings
         for (i = 0; i < markerLocations.length; i++) {
           if ((Math.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.01)) {
+            // Setting up the message for the user
             var alertMessage = "You have found a building"
-            markerLocations.splice(i, 1);
+            alertMessage = alertMessage.concat("\n", descriptions[i]);
+
+            // Removing the marker
             markers[i].setMap(null);
+
+            // Removing the building from the relevant arrays
+            markerLocations.splice(i, 1);
             markers.splice(i, 1);
+            descriptions.splice(i, 1);
+
+            // Displaying the message to the user
             alert(alertMessage);
           }
         }
