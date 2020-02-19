@@ -47,7 +47,7 @@ function initMap() {
 
         // Check if user is near buildings
         for (i = 0; i < markerLocations.length; i++) {
-          if ((Maths.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.01)) {
+          if ((Math.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.01)) {
             alert("You have found a building!");
           }
         }
