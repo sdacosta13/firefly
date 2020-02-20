@@ -4,6 +4,18 @@ body{
     background-color: #279b88;
 }
 
+div.loginPart{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 450px;
+    border-radius: 5px;
+    margin-left: -400px;
+    margin-top: -225px;
+    box-shadow: 5px 5px #555;
+}
+
 div.registerPart{
     position: absolute;
     left: 50%;
@@ -14,6 +26,15 @@ div.registerPart{
     margin-left: -400px;
     margin-top: -225px;
     box-shadow: 5px 5px #555;
+}
+
+div.login{
+    position: relative;
+    float: right;
+    width: 300px;
+    height: 450px;
+    border-radius: 0 5px 5px 0;
+    background-color: #eee;
 }
 
 div.register{
@@ -36,7 +57,7 @@ div.background{
 
 .header{
     position: relative;
-    top:30px;
+    top:40px;
     text-align: center;
     font-family: Calibri, sans-serif;
     font-size: 40px;
@@ -50,6 +71,23 @@ div.background{
     top: 50px;
     width: 200px;
     height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.username-register{
+    position: relative;
+    left: 50px;
+    top: 80px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-width: 0;
     border-bottom: 1px solid #279b88;
     font-size: 20px;
@@ -62,7 +100,24 @@ div.background{
     left: 50px;
     top: 80px;
     width: 200px;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.password-register{
+    position: relative;
+    left: 50px;
+    top: 110px;
+    width: 200px;
     height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-width: 0;
     border-bottom: 1px solid #279b88;
     font-size: 20px;
@@ -73,9 +128,11 @@ div.background{
 .password{
     position: relative;
     left: 50px;
-    top: 110px;
+    top: 100px;
     width: 200px;
-    height: 30px;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-width: 0;
     border-bottom: 1px solid #279b88;
     font-size: 20px;
@@ -89,6 +146,8 @@ div.background{
     top: 140px;
     width: 200px;
     height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-width: 0;
     border-bottom: 1px solid #279b88;
     font-size: 20px;
@@ -96,9 +155,29 @@ div.background{
     background-color: #eee;
 }
 
+.createAccount{
+    position: relative;
+    top: 205px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height:27px;
+    background-color: #eee;
+}
+
 .haveAccount{
     position: relative;
     top: 190px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height:27px;
+    background-color: #eee;
+}
+
+.forgotPassword{
+    position: relative;
+    top: 210px;
     font-family: Arial, sans-serif;
     font-size: 12px;
     text-align: center;
@@ -136,6 +215,21 @@ a:hover{
 input{
     width: 300px;
     height: 30px;
+}
+
+input.login{
+    position: relative;
+    left: 50px;
+    top: 160px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #279b88;
+    border-radius: 10px;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    color: #279b88;
+    background-color: #eee;
+    cursor: pointer;
 }
 
 input.register{
