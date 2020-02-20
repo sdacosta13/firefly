@@ -122,7 +122,7 @@
     if($requestType == 'POST'){
 	if(loginUser($uname, $password, $testMsgs, $mysqli) == "Login"){
 	   echo("good");
-	   header("Location: http://localhost:63342/groupWeb/firefly.html");
+	   header("Location: http://localhost/php/firefly.html");
 	} else {
 	    echo("fail");
 	    echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='login.html';</script>");
