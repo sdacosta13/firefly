@@ -1,10 +1,14 @@
 function initMap() {
   // Initialize and add the map
   var infoWindow;
+  var person = null;
+  var pos;
 
   // The location of our markers
   var kilburn = {lat: 53.467539, lng: -2.233927};
-  var building2 = {lat: 53.468634, lng: -2.235898};
+  var museum = {lat: 53.466341, lng: -2.234195};
+  var union = {lat: 53.464374, lng: -2.232154};
+  var markerLocations = [kilburn, museum, union];
 
   // The map, centered at the Kilburn building
   var map = new google.maps.Map(
@@ -19,20 +23,34 @@ function initMap() {
 
   // The markers, positioned at the buidlings we are using
   var kilburnMarker = new google.maps.Marker({position: kilburn, map: map});
-  var marker2 = new google.maps.Marker({position: building2, map: map});
+  var museumMarker = new google.maps.Marker({position: museum, map: map});
+  var unionMarker = new google.maps.Marker({position: union, map: map});
 
   createFog(map);
 
   if (navigator.geolocation) {
       // Repeatedly gets the user's location
       navigator.geolocation.watchPosition(function(position) {
-        var pos = {
+        pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
 
-        var person = new google.maps.Marker({position: pos, map: map});
+        // Set marker for user's location
+        if (person === null) {
+          person = new google.maps.Marker({position: pos, map: map});
+        } else {
+          person.setPosition(pos);
+        }
+
         map.setCenter(pos);
+
+        // Check if user is near buildings
+        for (i = 0; i < markerLocations.length; i++) {
+          if ((Maths.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.01)) {
+            alert("You have found a building!");
+          }
+        }
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -54,10 +72,10 @@ function initMap() {
 // Creates the fog overlay on the map
 function createFog(map) {
   var imageBounds = {
-    north: 53.468755,
-    south: 53.405814,
-    east: -2.230045,
-    west: -2.244038,
+    north: 53.477281,
+    south: 53.457807,
+    east: -2.218672,
+    west: -2.244703,
   };
   var fogOverlay;
   fogOverlay = new google.maps.GroundOverlay(
