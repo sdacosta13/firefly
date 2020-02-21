@@ -11,15 +11,15 @@
     $uname = $_POST['uname'];
     $password = $_POST['password'];
     $requestType = $_SERVER['REQUEST_METHOD'];
-    
+
     $uname = stripcslashes($uname);
     $password = stripcslashes($password);
-    
+
     #The require_once line below was in the cs wiki page about connecting to MySQL
     #but for some reason it gives an error so I've just commented it out for now
-    
+
     // Load the configuration file containing your database credentials
-    //require_once('config.inc.php'); 
+    //require_once('config.inc.php');
 
     // Connect to the group database
     $mysqli = new mysqli($database_host, $database_user, $database_pass, $group_dbnames[0]);
@@ -33,10 +33,10 @@
 		}
     }
     // register query
-    
+
     // Always close your connection to the database cleanly!
-    
-    
+
+
     function doSQL($conn, $sql, $testMsgs)
 	{
 		if ($testMsgs)
@@ -54,7 +54,7 @@
     function addUser($fname,$sname,$uname,$password,$email, $testMsgs, $mysqli){
 	if (!checkNewValidUser($uname, $email, $testMsgs,$mysqli)){
 	    $sql = "INSERT INTO users (fname, sname, uname, password, email) VALUES ('$fname','$sname','$uname','$password','$email')";
-	    
+
 	    doSQL($mysqli, $sql, $testMsgs);
 	    return True;
 	} else {
@@ -69,7 +69,7 @@
 	    if($row['uname'] == $uname or $row['email'] == $email){
 		$indb = True;
 	    }
-	    
+
 	}
 	return $indb;
     }
@@ -81,7 +81,7 @@
 	    if($row['uname'] == $uname){
 		$indb = True;
 	    }
-	    
+
 	}
 	return $indb;
     }
@@ -95,7 +95,7 @@
 	    }
 	}
 	return $login;
-	    
+
     }
     function loginUser($uname, $password, $testMsgs, $mysqli){
 	if (checkUserNameInDB($uname, $testMsgs, $mysqli)){
@@ -110,24 +110,24 @@
     }
     function getLocationId($long, $lat, $testMsgs, $mysqli){
 	$sql = "SELECT placeID FROM places WHERE longitude = $long AND latitude = $lat";
-	
+
     }
-    
+
     //if($requestType == 'POST'){
 	//echo(addUser('sam','da costa',$uname,$password,$email, $testMsgs, $mysqli));
 	//$mysqli->close();
     //}
-    
+
 //    echo (addUser("Sam","da Costa","sdacosta15","no", "sam.dacosta2005@gmail.com", $testMsgs, $mysqli));
     if($requestType == 'POST'){
 	if(loginUser($uname, $password, $testMsgs, $mysqli) == "Login"){
 	   echo("good");
-	   header("Location: http://localhost/php/firefly.html");
+	   header("Location: firefly.html");
 	} else {
 	    echo("fail");
 	    echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='login.html';</script>");
 	    // header("http://localhost/php/login.html");
-	    
+
 	}
 	//echo(loginUser($uname, $password, $testMsgs, $mysqli));
 	$mysqli->close();
