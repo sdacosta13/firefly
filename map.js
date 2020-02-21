@@ -58,6 +58,7 @@ function initMap() {
             // Setting up the message for the user
             var alertMessage = "You have found a building"
             alertMessage = alertMessage.concat("\n", descriptions[i]);
+            alertMessage = alertMessage.concat("\n", "View your progress from the menu to find out more to find out more")
 
             // Removing the marker
             markers[i].setMap(null);
