@@ -1,3 +1,4 @@
+currentFound = 0;
 function initMap() {
   // Initialize and add the map
   var infoWindow;
@@ -9,6 +10,7 @@ function initMap() {
   var museum = {lat: 53.466341, lng: -2.234195};
   var union = {lat: 53.464374, lng: -2.232154};
   var markerLocations = [kilburn, museum, union];
+  maxBuildings = markerLocations.length;
 
   // The description for each building
   var kilburnDescription = "This is the Kilburn building, the building for Computer Science at the University of Manchester. \nThe building is named after Tom Kilburn, a famous mathematician and computer scienctist who worked on the world's first electronic stored-program computer, the Manchester Baby";
@@ -70,6 +72,9 @@ function initMap() {
 
             // Displaying the message to the user
             alert(alertMessage);
+
+            // Updating the variable for number of variables the user has found
+            currentFound = currentFound + 1;
           }
         }
       }, function() {
