@@ -4,6 +4,15 @@ body{
     background-color: #279b88;
 }
 
+a{
+    text-decoration: none;
+    color: #888;
+}
+
+a:hover{
+    color: #222;
+}
+
 div.loginPart{
     position: absolute;
     left: 50%;
@@ -17,6 +26,18 @@ div.loginPart{
 }
 
 div.registerPart{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 800px;
+    height: 450px;
+    border-radius: 5px;
+    margin-left: -400px;
+    margin-top: -225px;
+    box-shadow: 5px 5px #555;
+}
+
+div.verificationPart{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -46,6 +67,15 @@ div.register{
     background-color: #eee;
 }
 
+div.verifyPart{
+    position: relative;
+    float: right;
+    width: 300px;
+    height: 450px;
+    border-radius: 0 5px 5px 0;
+    background-color: #eee;
+}
+
 div.background{
     position: relative;
     float: left;
@@ -58,6 +88,16 @@ div.background{
 .header{
     position: relative;
     top:40px;
+    text-align: center;
+    font-family: Calibri, sans-serif;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #279b88;
+}
+
+.verify-header{
+    position: relative;
+    top:20px;
     text-align: center;
     font-family: Calibri, sans-serif;
     font-size: 40px;
@@ -110,21 +150,6 @@ div.background{
     background-color: #eee;
 }
 
-.password-register{
-    position: relative;
-    left: 50px;
-    top: 110px;
-    width: 200px;
-    height: 30px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-width: 0;
-    border-bottom: 1px solid #279b88;
-    font-size: 20px;
-    color: #adadad;
-    background-color: #eee;
-}
-
 .password{
     position: relative;
     left: 50px;
@@ -140,10 +165,85 @@ div.background{
     background-color: #eee;
 }
 
+.password-register{
+    position: relative;
+    left: 50px;
+    top: 110px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
 .confirmPassword{
     position: relative;
     left: 50px;
     top: 140px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.email-verify{
+    position: relative;
+    left: 50px;
+    top: 30px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.verify-code{
+    position: relative;
+    left: 50px;
+    top: 50px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.newPassword{
+    position: relative;
+    left: 50px;
+    top: 60px;
+    width: 200px;
+    height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-width: 0;
+    border-bottom: 1px solid #279b88;
+    font-size: 20px;
+    color: #adadad;
+    background-color: #eee;
+}
+
+.repeatPassword{
+    position: relative;
+    left: 50px;
+    top: 70px;
     width: 200px;
     height: 30px;
     padding-left: 5px;
@@ -185,6 +285,48 @@ div.background{
     background-color: #eee;
 }
 
+.verify-createAccount{
+    position: relative;
+    top: 100px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height:27px;
+    background-color: #eee;
+}
+
+.back{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 125px;
+    height: 30px;
+    margin-left: -400px;
+    margin-top: -250px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height:27px;
+    color: #666;
+    background-color: #279b88;
+}
+
+.verify-back{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 90px;
+    height: 30px;
+    margin-left: -400px;
+    margin-top: -250px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    text-align: center;
+    line-height:27px;
+    color: #666;
+    background-color: #279b88;
+}
+
 .firefly_pic{
     position: relative;
     left: 50%;
@@ -201,15 +343,6 @@ div.background{
     width: 400px;
     margin-left: -200px;
     margin-top: 40px;
-}
-
-a{
-    text-decoration: none;
-    color: #888;
-}
-
-a:hover{
-    color: #222;
 }
 
 input{
@@ -236,6 +369,36 @@ input.register{
     position: relative;
     left: 50px;
     top: 170px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #279b88;
+    border-radius: 10px;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    color: #279b88;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+input.verify-email{
+    position: relative;
+    left: 50px;
+    top: 45px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #279b88;
+    border-radius: 10px;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+    color: #279b88;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+input.reset{
+    position: relative;
+    left: 50px;
+    top: 85px;
     width: 200px;
     height: 40px;
     border: 2px solid #279b88;
