@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+
+    <title>Firefly</title>
+    <script>
+      var y = '<?php echo $str ?>'
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <?php
+      $str = 8;
+      var_dump($str);
+    ?>
+    <p> First </p>
+    <p id="test"> Click to display </p>
+    <button onclick="abc()">Try </button>
+
+
+
+    <script>
+      function abc() {
+        alert(y);
+        // var x = "Test"
+        // document.getElementById("test").innerHTML = x;
+      }
+    </script>
+
+    <p> Second </p>
+  </body>
+</html>
