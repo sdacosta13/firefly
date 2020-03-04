@@ -64,7 +64,31 @@
     return $unvisited;
   }
 
-  $unvisited = getUnvisited(7, $testMsgs, $mysqli);
+  function getLatLongs($placeIDs, $testMsgs, $mysqli) {
+    // Getting the latitude and longitude for all locations in an array of placeIDs
+    $latlongs = array();
 
-  echo json_encode($unvisited);
+    foreach($placeIDs as $ID) {
+      // SQL statement to get longitude and latitude
+      $sql = "SELECT longitude, latitude FROM places WHERE placeID = $ID";
+      $result = doSQL($mysqli, $sql, $testMsgs);
+
+      while($row = $result->fetch_assoc()){
+  			$long = $row['longitude'];
+  			$lat = $row['latitude'];
+
+        // Adding latitude and longitude to array
+        array_push($latlongs, $lat, $long);
+  		}
+    }
+
+    return $latlongs;
+  }
+
+  $unvisited = getUnvisited(7, $testMsgs, $mysqli);
+  $coords = getLatLongs($unvisited, $testMsgs, $mysqli);
+
+  $mysqli->close();
+
+  echo json_encode($coords);
 ?>
