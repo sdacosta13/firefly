@@ -2,6 +2,31 @@ function reqListener () {
   console.log(this.responseText);
 }
 
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+}
+
+// Creates the fog overlay on the map
+function createFog(map) {
+var imageBounds = {
+  north: 53.477281,
+  south: 53.457807,
+  east: -2.218672,
+  west: -2.244703,
+};
+var fogOverlay;
+fogOverlay = new google.maps.GroundOverlay(
+  'https://lh4.googleusercontent.com/proxy/rpCG_YNAAsVgeen5Yz06GIBN6arMktQlgt-Z6-bSoZWcettRMFLefSTZ8XiLU2ENh0jo2ZZ_wmX97I_wkljdmAKfGJOqCxJC3tUTfelDVKSD3aTweMIyViPWEDY',
+  imageBounds);
+  fogOverlay.setMap(map);
+  fogOverlay.setOpacity(0.5);
+}
+
 // Code in here so it runs when the website loads
 var oReq = new XMLHttpRequest();
 oReq.onload = function() {
@@ -103,31 +128,6 @@ oReq.onload = function() {
         // Browser doesn't support Geolocation
         handleLocationError(false, infoWindow, map.getCenter());
       }
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(browserHasGeolocation ?
-                            'Error: The Geolocation service failed.' :
-                            'Error: Your browser doesn\'t support geolocation.');
-      infoWindow.open(map);
-    }
-  }
-
-  // Creates the fog overlay on the map
-  function createFog(map) {
-    var imageBounds = {
-      north: 53.477281,
-      south: 53.457807,
-      east: -2.218672,
-      west: -2.244703,
-    };
-    var fogOverlay;
-    fogOverlay = new google.maps.GroundOverlay(
-      'https://lh4.googleusercontent.com/proxy/rpCG_YNAAsVgeen5Yz06GIBN6arMktQlgt-Z6-bSoZWcettRMFLefSTZ8XiLU2ENh0jo2ZZ_wmX97I_wkljdmAKfGJOqCxJC3tUTfelDVKSD3aTweMIyViPWEDY',
-      imageBounds);
-      fogOverlay.setMap(map);
-      fogOverlay.setOpacity(0.5);
-  }
 };
 oReq.open("get", "getLatLong.php", true);
 oReq.send()
