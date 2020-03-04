@@ -17,11 +17,13 @@
         latlongsstr = latlongsstr.split("\"").join("");
 
         var latlongs = latlongsstr.split(",");
+        var markerLocations = [];
 
         for (i = 0; i < latlongs.length; i = i + 2) {
-          alert(latlongs[i]);
-          alert(latlongs[i+1]);
+          temp = {lat: latlongs[i], lng: latlongs[i+1]};
+          markerLocations.push(temp);
         }
+        alert(markerLocations[0].lat);
       };
       oReq.open("get", "getDataTest.php", true);
       oReq.send()
