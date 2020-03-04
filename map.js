@@ -2,22 +2,29 @@ function reqListener () {
   console.log(this.responseText);
 }
 
+// Code in here so it runs when the website loads
 var oReq = new XMLHttpRequest();
 oReq.onload = function() {
+  // Get the text from the PHP file that accesses the database
   var latlongsstr = this.responseText;
 
+  // Clean the string that is input
   latlongsstr = latlongsstr.replace("[", "");
   latlongsstr = latlongsstr.replace("]", "");
   latlongsstr = latlongsstr.split("\"").join("");
 
+  // Split the string into an array
   var latlongs = latlongsstr.split(",");
+
   var markerLocations = [];
 
+  // Loop through the array and create objects for each location
   for (i = 0; i < latlongs.length; i = i + 2) {
     temp = {lat: latlongs[i], lng: latlongs[i+1]};
     markerLocations.push(temp);
   }
 
+  // To initialise the map
   initMap();
 
   function initMap() {
@@ -92,9 +99,6 @@ oReq.onload = function() {
 
               // Displaying the message to the user
               alert(alertMessage);
-
-              // Updating the variable for number of variables the user has found
-              currentFound = currentFound + 1;
             }
           }
         }, function() {
