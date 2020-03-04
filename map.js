@@ -25,19 +25,13 @@ oReq.onload = function() {
   }
 
   // To initialise the map
-  initMap();
+  initMap(markerLocations);
 
-  function initMap() {
-    // Initialize and add the map
+  function initMap(markerLocations) {
+    // Initialise and add the map
     var infoWindow;
     var person = null;
     var pos;
-
-    // The location of our markers
-    var kilburn = {lat: 53.467539, lng: -2.233927};
-    var museum = {lat: 53.466341, lng: -2.234195};
-    var union = {lat: 53.464374, lng: -2.232154};
-    var markerLocations = [kilburn, museum, union];
 
     // The description for each building
     var kilburnDescription = "This is the Kilburn building, the building for Computer Science at the University of Manchester. \nThe building is named after Tom Kilburn, a famous mathematician and computer scienctist who worked on the world's first electronic stored-program computer, the Manchester Baby";
@@ -57,10 +51,11 @@ oReq.onload = function() {
     infoWindow = new google.maps.InfoWindow;
 
     // The markers, positioned at the buidlings we are using
-    var kilburnMarker = new google.maps.Marker({position: kilburn, map: map});
-    var museumMarker = new google.maps.Marker({position: museum, map: map});
-    var unionMarker = new google.maps.Marker({position: union, map: map});
-    var markers = [kilburnMarker, museumMarker, unionMarker];
+    var markers = [];
+    for (i = 0; i < markerLocations.length; i++) {
+      temp = new google.maps.Marker({position: markerLocations[i], map: map});
+      markers.push(temp);
+    }
 
     createFog(map);
 
@@ -116,7 +111,6 @@ oReq.onload = function() {
                             'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
     }
-
   }
 
   // Creates the fog overlay on the map
@@ -134,7 +128,6 @@ oReq.onload = function() {
       fogOverlay.setMap(map);
       fogOverlay.setOpacity(0.5);
   }
-
 };
 oReq.open("get", "getLatLong.php", true);
 oReq.send()
