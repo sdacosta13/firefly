@@ -60,7 +60,7 @@ oReq.onload = function() {
     // The description for each building
     var kilburnDescription = "This is the Kilburn building, the building for Computer Science at the University of Manchester. \nThe building is named after Tom Kilburn, a famous mathematician and computer scienctist who worked on the world's first electronic stored-program computer, the Manchester Baby";
     var museumDescription = "This is the Manchester Museum";
-    var unionDescription = "This is the student's union for the University of Manchester";
+    var unionDescription = "This is the Students' Union for the University of Manchester";
     var descriptions = [kilburnDescription, museumDescription, unionDescription];
 
     // The map, centered at the Kilburn building
