@@ -10,22 +10,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-// Creates the fog overlay on the map
-function createFog(map) {
-var imageBounds = {
-  north: 53.477281,
-  south: 53.457807,
-  east: -2.218672,
-  west: -2.244703,
-};
-var fogOverlay;
-fogOverlay = new google.maps.GroundOverlay(
-  'https://lh4.googleusercontent.com/proxy/rpCG_YNAAsVgeen5Yz06GIBN6arMktQlgt-Z6-bSoZWcettRMFLefSTZ8XiLU2ENh0jo2ZZ_wmX97I_wkljdmAKfGJOqCxJC3tUTfelDVKSD3aTweMIyViPWEDY',
-  imageBounds);
-  fogOverlay.setMap(map);
-  fogOverlay.setOpacity(0.5);
-}
-
 // Code in here so it runs when the website loads
 var oReq = new XMLHttpRequest();
 oReq.onload = function() {
@@ -44,7 +28,7 @@ oReq.onload = function() {
 
   // Loop through the array and create objects for each location
   for (i = 0; i < latlongs.length; i = i + 2) {
-    temp = {lat: latlongs[i], lng: latlongs[i+1]};
+    temp = {lat: parseFloat(latlongs[i]), lng: parseFloat(latlongs[i+1])};
     markerLocations.push(temp);
   }
 
@@ -65,7 +49,7 @@ oReq.onload = function() {
 
     // The map, centered at the Kilburn building
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 17, maxZoom: 17, minZoom: 17, center: kilburn, disableDefaultUI: false,
+        document.getElementById('map'), {zoom: 17, maxZoom: 17, minZoom: 17, center: markerLocations[0], disableDefaultUI: false,
         zoomControl: false,
         mapTypeControl: false,
         scaleControl: false,
@@ -81,7 +65,19 @@ oReq.onload = function() {
       markers.push(temp);
     }
 
-    createFog(map);
+    // Creates the fog overlay on the map
+    var imageBounds = {
+      north: 53.477281,
+      south: 53.457807,
+      east: -2.218672,
+      west: -2.244703,
+    };
+    var fogOverlay;
+    fogOverlay = new google.maps.GroundOverlay(
+      'fog.png',
+      imageBounds);
+    fogOverlay.setMap(map);
+    fogOverlay.setOpacity(0.5);
 
     if (navigator.geolocation) {
       // Repeatedly gets the user's location
@@ -117,7 +113,7 @@ oReq.onload = function() {
             descriptions.splice(i, 1);
 
             // Displaying the message to the user
-            alert(alertMessage);
+            //alert(alertMessage);
           }
         }
       }, function() {
