@@ -113,7 +113,7 @@ oReq.onload = function() {
             descriptions.splice(i, 1);
 
             // Displaying the message to the user
-            //alert(alertMessage);
+            alert(alertMessage);
           }
         }
       }, function() {
