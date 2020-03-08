@@ -8,6 +8,9 @@
     // Load Composer's autoloader
     require 'vendor/autoload.php';
 
+    // Variables passed from e-ver page
+    $email = $_POST['email'];
+
     // Instantiation and passing `true` enables exceptions
     $mail = new PHPMailer(true);
 
@@ -24,7 +27,7 @@
 
         //Recipients
         $mail->setFrom('WebMailerY1@gmail.com', 'Firefly');
-        $mail->addAddress('1613051286@qq.com', 'User');     // Add a recipient
+        $mail->addAddress($email, 'User');                          // Add a recipient
         // $mail->addAddress('ellen@example.com');                        // Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');
         // $mail->addCC('cc@example.com');
@@ -41,7 +44,7 @@
         // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
         $mail->send();
-        echo 'Message has been sent';
+        echo '<script type="text/javascript">alert("Message sent")</script>';
     } catch (Exception $e) {
-        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        echo "<script type='text/javascript'>alert('Could not be sent. Mailer Error: {$mail->ErrorInfo}')</script>";
     }

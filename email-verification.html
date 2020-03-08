@@ -14,11 +14,13 @@
             <div class="verify-header">
                 Email<br>verification
             </div>
-            <form action="sqlModule1.php" method="post">
+            <form action="emailTest.php" method="post">
                 <label>
                     <input type="email" value="email" name="email" class="email-verify" onfocus="if(value==='email'){value=''; this.style.color='#000'}" onblur="if(value===''){value='email'; this.style.color='#adadad'}">
                 </label>
                 <input type="submit" value="SEND CODE" class="verify-email">
+            </form>
+            <form action="sqlModule1.php" method="post">
                 <label>
                     <input type="text" value="verification code" name="verificationCode" class="verify-code" onfocus="if(value==='verification code'){value=''; this.style.color='#000'}" onblur="if(value===''){value='verification code'; this.style.color='#adadad'}">
                     <input type="text" value="new password" name="newPassword" class="newPassword" onfocus="if(value==='new password'){value=''; this.style.color='#000'; type='password'}" onblur="if(value===''){value='new password'; this.style.color='#adadad'; type='text'}">
