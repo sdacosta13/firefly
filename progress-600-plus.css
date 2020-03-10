@@ -1,0 +1,9 @@
+#progress{
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  box-shadow: 0px 0px 2px 0px whitesmoke;
+}
+
+a{
+  padding: 1em;
+}
