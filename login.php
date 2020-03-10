@@ -15,7 +15,7 @@
     }
     */
     $session_start();
-    if(isset(_SESSION['user']) && _SESSION['user'] == true){
+    if(isset($_SESSION['user']) && $_SESSION['user'] == true){
         echo"1";
     }
     else{
