@@ -1,4 +1,5 @@
 <?php
+/*
     $username = $_POST['username'];
     $password = $_POST['password'];
     $requestType = $_SERVER['REQUEST_METHOD'];
@@ -11,4 +12,12 @@
     }else if ($requestType == 'POST'){
         // header("Location: http://localhost:63342/groupWeb/login.html");
         echo ("<p>username or password incorrect</p>");
+    }
+    */
+    $session_start();
+    if(isset(_SESSION['user']) && _SESSION['user'] == true){
+        echo"1";
+    }
+    else{
+        die("failed!");
     }
