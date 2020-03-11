@@ -1,4 +1,3 @@
-
 <?php
     //Make sure to enter your username and password in the variables at the top
     $testMsgs = true;
@@ -100,6 +99,8 @@
     function loginUser($uname, $password, $testMsgs, $mysqli){
 	if (checkUserNameInDB($uname, $testMsgs, $mysqli)){
 	    if(grantLogin($uname, $password, $testMsgs,$mysqli)){
+	        $session_start();
+	        $_SESSION['user'] = true;
 		return "Login";
 	    } else {
 		return "Password Incorrect";
