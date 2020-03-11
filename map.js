@@ -30,6 +30,9 @@ function begin() {
     username = username.substring(1, username.length);
     data.splice(data.length-1, 1);
 
+    // Setting the welcome back message
+    document.getElementById("welcome").innerHTML = username;
+
     // Set up empty arrays for marker locations and descriptions
     var markerLocations = [];
     var descriptions = [];
