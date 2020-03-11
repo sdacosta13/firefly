@@ -99,7 +99,7 @@
     function loginUser($uname, $password, $testMsgs, $mysqli){
 	if (checkUserNameInDB($uname, $testMsgs, $mysqli)){
 	    if(grantLogin($uname, $password, $testMsgs,$mysqli)){
-	        $session_start();
+	        session_start();
 	        $_SESSION['user'] = true;
 		return "Login";
 	    } else {
