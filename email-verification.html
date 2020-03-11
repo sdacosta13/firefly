@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reset Password</title>
+    <link rel="stylesheet" type="text/css" href="login-related.css">
+</head>
+<body>
+    <div class="verificationPart">
+        <div>
+            <a class="verify-back" href="login.html">Back to login</a>
+        </div>
+        <div class="verifyPart">
+            <div class="verify-header">
+                Email<br>verification
+            </div>
+            <form action="emailTest.php" method="post">
+                <label>
+                    <input type="email" value="email" name="email" class="email-verify" onfocus="if(value==='email'){value=''; this.style.color='#000'}" onblur="if(value===''){value='email'; this.style.color='#adadad'}">
+                </label>
+                <input type="submit" value="SEND CODE" class="verify-email">
+            </form>
+            <form action="sqlModule1.php" method="post">
+                <label>
+                    <input type="text" value="verification code" name="verificationCode" class="verify-code" onfocus="if(value==='verification code'){value=''; this.style.color='#000'}" onblur="if(value===''){value='verification code'; this.style.color='#adadad'}">
+                    <input type="text" value="new password" name="newPassword" class="newPassword" onfocus="if(value==='new password'){value=''; this.style.color='#000'; type='password'}" onblur="if(value===''){value='new password'; this.style.color='#adadad'; type='text'}">
+                    <input type="text" value="repeat password" name="repeatPassword" class="repeatPassword" onfocus="if(value==='password'){value=''; this.style.color='#000'; type='repeat password'}" onblur="if(value===''){value='repeat password'; this.style.color='#adadad'; type='text'}">
+                </label>
+                <input type="submit" value="RESET" class="reset">
+            </form>
+            <div class="verify-createAccount">
+                <a href="register.html">Create a free account</a>
+            </div>
+        </div>
+        <div class="background">
+            <div class="firefly_pic">
+                <img src="firefly%20original.jpg" alt="firefly">
+            </div>
+            <div class="firefly_des">
+                <img src="firefly%20words.jpg" alt="description">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
