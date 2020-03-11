@@ -5,6 +5,16 @@ html, body, ul, li, a {
     box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+
 label {
     position: fixed;
     top: 1rem;
@@ -14,14 +24,14 @@ label {
     align-items: center;
     width: 5rem;
     height: 2rem;
-    border: .3rem solid darkred;
+    border: .3rem solid darkblue;
     border-radius: 1rem;
-    background-color: rgba(204, 0, 0, 0.6);
+    background-color: rgba(0,191,255, 0.6);
     color: whitesmoke;
 }
 
 label:hover {
-    background-color: #d68617;
+    background-color: royalblue;
 }
 
 input[type="checkbox"] {
@@ -33,7 +43,7 @@ input[type="checkbox"] {
     left: -50rem;
     height: 100vh;
     width: 28vw;
-    background-color: rgba(204, 0, 0, 0.6);
+    background-color: rgba(0,191,255, 0.6);
     transition-property:all;
     transition-timing-function:ease;
     transition-duration: 1s;
@@ -45,6 +55,7 @@ input[type="checkbox"]:checked + #sidebar {
     left: 0;
     top: 0;
 }
+
 ol {
     margin-top: 4rem;
     list-style: none;
@@ -62,13 +73,8 @@ a{
   display: block;
 }
 
-img{
-  flex-flow: row wrap;
-  justify-content: space-between;
-}
-
 a:hover{
-  background:#d68617;
+  background: royalblue;
 }
 
 li:last-child{
@@ -76,7 +82,7 @@ li:last-child{
   font-size: 1em;
   }
 
-li:nth-child(5){
+li:nth-child(6){
   color:whitesmoke;
   font-size: 1.0em;
   padding: 30px 0;
@@ -88,9 +94,9 @@ li:nth-child(5){
 }
 
 h2{
+  color: deepskyblue;
   padding-top: 20px;
   padding-left: 20px;
-  color: whitesmoke;
 }
 
 
@@ -100,13 +106,11 @@ span{
 
 .bar {
   height: 20px;
-  margin: 40px 50px 100px 50px;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
-  width: 60%;
-  padding: 5px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  margin: 60px 50px 60px 50px;
+  background: #555;
+  border-radius: 25px;
+  padding: 10px;
+  width:40%;
 }
 .bar > span {
   display: block;
@@ -120,162 +124,4 @@ span{
 
 
 .green > span {
-  background-image: -webkit-linear-gradient(#123622, #003636);
-}
-
-.progress1{
-  box-sizing: border-box;
-  width:100%;
-  height: 7%
-}
-
-.column{
-  float: left;
-  width: 50%;
-  height: 100%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-.row{
-  float:right;
-  width:25%;
-}
-.slides{
-  display: none;
-position: fixed;
-z-index: 1;
-padding-top: 80px;
-width: 100%;
-height: 100%;
-background-color: black;
-}
-
-.slides2{
-position: relative;
-background-color: whitesmoke;
-margin: auto;
-padding: 0;
-width: 70%;
-max-width: 900px;
-}
-
-.close{
-color: white;
-position: absolute;
-top: 20px;
-right: 35px;
-font-size: 40px;
-font-weight: bold;
-}
-
-.close:hover, .close:focus {
-  color: gray;
-  text-decoration: none;
-  cursor: pointer;
-}
-.mySlides {
-  display: none;
-  margin: auto;
-  text-align: center;
-}
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  padding: 1em;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  transition: 1s ease-out;
-  cursor: pointer;
-}
-
-.next {
-  right: 0;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.textnum {
-  color: gray;
-  font-size: 1em;
-  padding: 6px 10px;
-  position: absolute;
-}
-
-.captions {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-img.slideImage {
-  opacity: 0.7;
-  text-align: center;
-}
-
-.active, .slideImage:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.6s;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.image{
-
-  width:65%;
-}
-
-.image2{
-  margin-top: 50px;
-  width:60%;
-}
-
-.col{
-  float: left;
-  margin-left: 15%;
-  width: 10%;
-}
-
-.wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.hovertext {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 100%;
-  height: 128px;
-  width: 128px;
-  opacity: 0;
-  transition: 1s ease;
-  background-color: gold;
-
-}
-
-.wrapper:hover .hovertext {
-  opacity: 1;
-}
-
-.text {
-  color: white;
-  font-size: 1.2em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
+  background-image: -webkit-linear-gradient(#3CB371, #3CBBAA);
