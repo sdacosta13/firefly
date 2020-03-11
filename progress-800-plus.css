@@ -1,6 +1,6 @@
 #progress{
   list-style: none;
-  background: linear-gradient(to right, #f77f00, #cc0000);
+  background: deepskyblue;
 
 }
 
@@ -14,7 +14,7 @@ a{
 }
 
 a:hover{
-  background: #d68617;
+  background: royalblue;
 }
 
 a:last-child{

@@ -9,160 +9,18 @@
   <title>Firefly.progress</title>
 </head>
 <body>
-  <script>
-  function openSlides() {
-    document.getElementById("myModal").style.display = "block";
-  }
-  function closeSlides() {
-    document.getElementById("myModal").style.display = "none";
-  }
-  var slideNum = 1;
-  showSlides(slideNum);
-  function plusSlides(unit) {
-    showSlides(slideNum += unit);
-  }
-
-  function currentSlide(unit) {
-    showSlides(slideNum = unit);
-  }
-  function showSlides(unit) {
-    var slides = document.getElementsByClassName("mySlides");
-    var text = document.getElementById("caption");
-    var state = document.getElementsByClassName("slideImage");
-    var iterator;
-    if (unit > slides.length) {slideNum = 1}
-
-    for (iterator = 0; iterator < slides.length; iterator++) {
-      slides[iterator].style.display = "none";
-    }
-
-    for (iterator = 0; iterator < state.length; iterator++) {
-      state[iterator].className = state[iterator].className.replace(" active", "");
-    }
-
-    slides[slideNum-1].style.display = "block";
-    state[slideNum-1].className += "active";
-  }
-
-  function changeProgress(){
-    var placesFound=0;
-    var placesTotal = 3;
-    var x = (placesFound / placesTotal) *100;
-    var image = document.getElementById('badge1');
-    var image2 = document.getElementById('badge2');
-    var image3 = document.getElementById('badge3');
-    var progBar = document.getElementById('bar');
-    if (image.src.match("question.png") && x>0) {
-        image.src ="006-bonfire.png" ;
-    }
-    if (image2.src.match("question.png") && x>=50) {
-        image2.src ="007-compass.png" ;
-    }
-    if (image3.src.match("question.png") && x==100) {
-        image3.src ="discover.png" ;
-    }
-    var progBar = document.getElementById('bar');
-    if(placesFound==0){
-    progBar.style.width = "5%";}
-    if(placesFound==1){
-    progBar.style.width = "33%";}
-    if(placesFound==2){
-    progBar.style.width = "66%";}
-    if(placesFound==3){
-    progBar.style.width = "100%";}
-}
-  </script>
 <ul id="progress">
+  <li><a href="firefly.html">Return</a></li>
   <li><a href="#progressbar">Progress bar</a></li>
   <li><a href="#badges">Badges</a></li>
   <li><a href="#statistics">Statistics</a></li>
   <li><a href="#description">Location Descriptions</a></li>
 </ul>
 
-<div class="column">
-<div class="progress1">
 <h2 id="progressbar">Your progress: </h2>
-</div>
-<div class="progress1">
 <div class="bar green">
-  <span id="bar" onload="changeProgress()"></span>
+  <span style="width: 80%"></span>
 </div>
-</div>
-<div class="progress1">
-<h2 id="badges">Badges:</h2>
-</div>
-<div class="progress1">
-<div class="wrapper">
-<img src="question.png" alt="First steps badge" id="badge1" onload="changeProgress()">
-<div class="hovertext">
-<div class="text">Discover first location</div>
-</div>
-</div>
-<div class="wrapper">
-<img src="question.png" alt="Explorer badge" id="badge2" onload="changeProgress()">
-<div class="hovertext">
-<div class="text">Discover half of the locations</div>
-</div>
-</div>
-<div class="wrapper">
-<img src="question.png" alt="Adventurer badge" id="badge3" onload="changeProgress()">
-<div class="hovertext">
-<div class="text">Discover all locations</div>
-</div>
-</div>
-<div class="wrapper">
-<img src="question.png" alt="Mistery badge">
-<div class="hovertext">
-<div class="text">Mistery Badge</div>
-</div>
-</div>
-</div>
-</div>
-<div class="column2">
-  <div class="row">
-  <img src="kilburn.jpg" alt="Kilburn Building" onclick="openSlides();currentSlide(1)" class="hover-shadow image2">
-  </div>
-  <div class="row">
-     <img src="studentsunion.jpg" onclick="openSlides();currentSlide(2)" class="hover-shadow image2">
-  </div>
-  <div class="row">
-     <img src="museum.jpg" onclick="openSlides();currentSlide(3)" class="hover-shadow image2">
-  </div>
-    </div>
-    <div id="myModal" class="slides">
-      <span class="close cursor" onclick="closeSlides()">&times;</span>
-      <div class="slides2">
-
-        <div class="mySlides">
-          <div class="textnum">1 / 3</div>
-          <img class="image" src="kilburn.jpg">
-        </div>
-
-        <div class="mySlides">
-          <div class="textnum">2 / 3</div>
-          <img class="image" src="studentsunion.jpg">
-        </div>
-
-        <div class="mySlides">
-          <div class="textnum">3 / 3</div>
-          <img class="image" src="museum.jpg">
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            <div class="captions">
-              <p id="caption"></p>
-            </div>
-            <div class="col">
-              <img class="slideImage" src="kilburn.jpg" onclick="currentSlide(1)" alt="Kilburn Building" style="width:100px">
-            </div>
-            <div class="col">
-              <img class="slideImage" src="studentsunion.jpg" onclick="currentSlide(2)" alt="Students Union" style="width:100px">
-            </div>
-            <div class="col">
-              <img class="slideImage" src="museum.jpg" onclick="currentSlide(3)" alt="Museum" style="width:100px">
-            </div>
-            </div>
-            </div>
+<h2>Badges: </h2>
 </body>
 </html>
