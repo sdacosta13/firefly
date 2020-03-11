@@ -102,7 +102,7 @@ $mysqli = new mysqli($database_host, $database_user, $database_pass, $group_dbna
   		return array($a,$b);
   	}
       function makeRequest($uIDRequester, $uIDTarget, $mysqli, $testMsgs){
-  		#returns 0 if the request is made or is accepted, returns 1 if request has already been made
+  		#returns 0 if the request is made or is accepted, returns 1 if request has already been made.
   		$results = checkRequest($uIDRequester, $uIDTarget, $mysqli, $testMsgs);
   		$a = $results[0];
   		$b = $results[1];
