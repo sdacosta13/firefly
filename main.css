@@ -5,10 +5,6 @@ html, body, ul, li, a {
     box-sizing: border-box;
 }
 
-body{
-   background: linear-gradient(to right, #f77f00, #cc0000);
-}
-
 label {
     position: fixed;
     top: 1rem;
