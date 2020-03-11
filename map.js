@@ -15,38 +15,50 @@ function begin() {
   var oReq = new XMLHttpRequest();
   oReq.onload = function() {
     // Get the text from the PHP file that accesses the database
-    var latlongsstr = this.responseText;
+    var datastr = this.responseText;
 
     // Clean the string that is input
-    latlongsstr = latlongsstr.replace("[", "");
-    latlongsstr = latlongsstr.replace("]", "");
-    latlongsstr = latlongsstr.split("\"").join("");
+    datastr = datastr.replace("[", "");
+    datastr = datastr.replace("]", "");
+    datastr = datastr.split("\"").join("");
 
     // Split the string into an array
-    var latlongs = latlongsstr.split(",");
+    var data = datastr.split("*");
 
+    // Get the username
+    var username = data[data.length-1];
+    username = username.substring(1, username.length);
+    data.splice(data.length-1, 1);
+
+    // Set up empty arrays for marker locations and descriptions
     var markerLocations = [];
+    var descriptions = [];
 
-    // Loop through the array and create objects for each location
-    for (i = 0; i < latlongs.length; i = i + 2) {
-      temp = {lat: parseFloat(latlongs[i]), lng: parseFloat(latlongs[i+1])};
+    // Loop through the array and create objects for each location and their descriptions
+    for (i = 0; i < data.length; i = i + 3) {
+      if (i == 0) {
+        temp = {lat: parseFloat(data[i].substring(0, data[i].length - 1)), lng: parseFloat(data[i+1].substring(1, data[i+1].length - 1))};
+      } else {
+        temp = {lat: parseFloat(data[i].substring(1, data[i].length - 1)), lng: parseFloat(data[i+1].substring(1, data[i+1].length - 1))};
+      }
       markerLocations.push(temp);
+      descriptions.push(data[i+2].substring(1, data[i+2].length));
+    }
+
+    // Making sure \n is used for new lines in each description
+    for (i = 0; i < descriptions.length; i++) {
+      descriptions[i] = descriptions[i].replace("\\n", "\n");
+      descriptions[i] = descriptions[i].replace("\\", "");
     }
 
     // To initialise the map
-    initMap(markerLocations);
+    initMap(markerLocations, descriptions);
 
-    function initMap(markerLocations) {
+    function initMap(markerLocations, descriptions) {
       // Initialise and add the map
       var infoWindow;
       var person = null;
       var pos;
-
-      // The description for each building
-      var kilburnDescription = "This is the Kilburn building, the building for Computer Science at the University of Manchester. \nThe building is named after Tom Kilburn, a famous mathematician and computer scienctist who worked on the world's first electronic stored-program computer, the Manchester Baby";
-      var museumDescription = "This is the Manchester Museum";
-      var unionDescription = "This is the Students' Union for the University of Manchester";
-      var descriptions = [kilburnDescription, museumDescription, unionDescription];
 
       // The map, centered at the Kilburn building
       var map = new google.maps.Map(

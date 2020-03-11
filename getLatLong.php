@@ -64,31 +64,35 @@
     return $unvisited;
   }
 
-  function getLatLongs($placeIDs, $testMsgs, $mysqli) {
+  function getLatLongsMessage($placeIDs, $testMsgs, $mysqli) {
     // Getting the latitude and longitude for all locations in an array of placeIDs
-    $latlongs = array();
+    $latlongsmessage = array();
 
     foreach($placeIDs as $ID) {
       // SQL statement to get longitude and latitude
-      $sql = "SELECT longitude, latitude FROM places WHERE placeID = $ID";
+      $sql = "SELECT longitude, latitude, message FROM places WHERE placeID = $ID";
       $result = doSQL($mysqli, $sql, $testMsgs);
 
       while($row = $result->fetch_assoc()){
-  			$long = $row['longitude'];
-  			$lat = $row['latitude'];
+  			$long = strval($row['longitude']) . "*";
+  			$lat = strval($row['latitude']) . "*";
+        $message = strval($row['message']) . "*";
 
         // Adding latitude and longitude to array
-        array_push($latlongs, $lat, $long);
+        array_push($latlongsmessage, $lat, $long, $message);
   		}
     }
 
-    return $latlongs;
+    return $latlongsmessage;
   }
 
   $unvisited = getUnvisited(7, $testMsgs, $mysqli);
-  $coords = getLatLongs($unvisited, $testMsgs, $mysqli);
+    $data = getLatLongsMessage($unvisited, $testMsgs, $mysqli);
 
   $mysqli->close();
 
-  echo json_encode($coords);
+  $username = "sdacosta15";
+  array_push($data, $username);
+
+  echo json_encode($data);
 ?>
