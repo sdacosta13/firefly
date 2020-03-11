@@ -1,4 +1,5 @@
 <?php
+    session_start();
     //Make sure to enter your username and password in the variables at the top
     $testMsgs = true;
     //Initialise variables for DB connection
@@ -91,7 +92,12 @@
 
   $mysqli->close();
 
-  $username = "sdacosta15";
+  if ($_SESSION["user"] == true) {
+    $username = $_SESSION["username"];
+  } else {
+    $username = "ERROR";
+  }
+
   array_push($data, $username);
 
   echo json_encode($data);
