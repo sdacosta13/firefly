@@ -1,7 +1,7 @@
 <?php
     session_start();
     //Make sure to enter your username and password in the variables at the top
-    $testMsgs = true;
+    $testMsgs = false;
     //Initialise variables for DB connection
     $database_host = "dbhost.cs.man.ac.uk";
     $database_user = "j38067bl";
@@ -34,13 +34,18 @@
 		return $result;
 	}
 
-  function getUnvisited($userID, $testMsgs, $mysqli){
+  function getPlaces($mysqli, $testMsgs) {
     $sql = "SELECT placeID FROM places";
     $places = doSQL($mysqli, $sql, $testMsgs);
     $placeList = array();
     while($row = $places->fetch_assoc()){
       array_push($placeList, $row['placeID']);
     }
+    return $placeList;
+  }
+
+  function getUnvisited($userID, $testMsgs, $mysqli){
+    $placeList = getPlaces($mysqli, $testMsgs);
 
     $sql = "SELECT userPlaces.placeID FROM userPlaces WHERE userID = $userID";
     $visited = doSQL($mysqli, $sql, $testMsgs);
@@ -87,16 +92,37 @@
     return $latlongsmessage;
   }
 
-  $unvisited = getUnvisited(7, $testMsgs, $mysqli);
-    $data = getLatLongsMessage($unvisited, $testMsgs, $mysqli);
+  function getUserID($username, $testMsgs, $mysqli) {
+    $sql = "SELECT userID, uname FROM users;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
 
-  $mysqli->close();
+    $userID = -1;
+
+    while($row = $result->fetch_assoc()) {
+      if ($username == $row['uname']) {
+        $userID = $row['userID'];
+        break;
+      }
+    }
+  }
 
   if ($_SESSION["user"] == true) {
     $username = $_SESSION["username"];
   } else {
     $username = "ERROR";
   }
+
+  $userID = getUSERID($username, $testMsgs, $mysqli);
+  if ($userID > 0) {
+    $unvisited = getUnvisited($userID, $testMsgs, $mysqli);
+    $data = getLatLongsMessage($unvisited, $testMsgs, $mysqli);
+  } else {
+    $places = getPlaces($mysqli, $testMsgs);
+    $data = getLatLongsMessage($places, $testMsgs, $mysqli);
+  }
+
+
+  $mysqli->close();
 
   array_push($data, $username);
 
