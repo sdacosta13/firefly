@@ -47,5 +47,8 @@
   $longitude = $_POST['longitude'];
   $username = $_POST['username'];
   $userID = convertTextToID();
+
+  $mysqli->close();
+  
   echo "<script>alert(" . $latitude . $longitude . $username . $userID . ")</script";
 ?>
