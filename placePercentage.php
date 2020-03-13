@@ -1,4 +1,5 @@
 <?php
+  session_start();
   //Make sure to enter your username and password in the variables at the top
   $testMsgs = false;
   //Initialise variables for DB connection
@@ -31,6 +32,20 @@
     else
       $result = $conn->query($sql);
     return $result;
+  }
+
+  function getUserID($username, $testMsgs, $mysqli) {
+    $sql = "SELECT userID, uname FROM users;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    $userID = -1;
+
+    while($row = $result->fetch_assoc()) {
+      if ($username == $row['uname']) {
+        $userID = $row['userID'];
+        break;
+      }
+    }
   }
 
   function getVisited($userID, $testMsgs, $mysqli){
@@ -69,6 +84,14 @@
     $percentage = ($numVisited / $numPlaces) * 100;
     return $percentage;
   }
+
+  if ($_SESSION["user"] == true) {
+    $username = $_SESSION["username"];
+  } else {
+    $username = "ERROR";
+  }
+
+  $userID = getUSERID($username, $testMsgs, $mysqli);
 
   $mysqli->close();
 ?>
