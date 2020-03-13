@@ -69,20 +69,32 @@
     return $placeID;
   }
 
+  function getPoints($placeID, $testMsgs, $mysqli) {
+    $sql = "SELECT worth FROM places WHERE placeID = $placeID;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+    while($row = $result->fetch_assoc()) {
+      $points = $row['worth'];
+    }
+    return $points;
+  }
+
 
   $latitude = $_POST['latitude'];
   $longitude = $_POST['longitude'];
   $username = $_POST['username'];
+
   $userID = getUserID($username, $testMsgs, $mysqli);
   $placeID = getPlaceID($longitude, $latitude, $testMsgs, $mysqli);
+  $points = getPoints($placeID, $testMsgs, $mysqli);
 
   $mysqli->close();
 
-  $toAlert = $latitude . $longitude . $username . $userID . $placeID;
+  $toAlert1 = $userID . $placeID;
+  $toAlert2 = $userID . $points;
 
   echo "<h1 id='hi'>Hello</h1>";
-  echo "<script type=\"text/javascript\">alert($toAlert)</script>";
-  echo "<script type=\"text/javascript\">document.getElementById('hi').innerHTML = $latitude</script>";
+  echo "<script type=\"text/javascript\">alert($toAlert1)</script>";
+  echo "<script type=\"text/javascript\">alert($toAlert2)</script>";
 
   // Returning to main page
   //header('Location: firefly.html');
