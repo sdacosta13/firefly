@@ -45,17 +45,38 @@
         break;
       }
     }
+    return $userID;
+  }
+
+  function getPlaceID($longitude, $latitude, $testMsgs, $mysqli) {
+    $sql = "SELECT placeID, longitude, latitude FROM places;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    $placeID = -1
+
+    while($row = $result->fetch_assoc()) {
+      if($longitude == $row['longitude'] and $latitude == $row['latitude']) {
+        $placeID = $row['placeID'];
+        break;
+      }
+    }
+    return $placeID;
   }
 
 
   $latitude = $_POST['latitude'];
   $longitude = $_POST['longitude'];
   $username = $_POST['username'];
-  $userID = getUSERID($username, $testMsgs, $mysqli);
+  $userID = getUserID($username, $testMsgs, $mysqli);
+  $placeID = getPlaceID($longitude, $latitude, $testMsgs, $mysqli);
 
   $mysqli->close();
 
   echo "<h1 id='hi'>Hello</h1>";
-  echo "<script>alert(" . $latitude . $longitude . $username . $userID . ")</script";
-  echo "<script>document.getElementById('hi').innerHTML = $latitude";
+  echo "<script type=\"text/javascript\">alert($latitude . $longitude . $username . $userID . $placeID)</script>";
+  echo "<script type=\"text/javascript\">document.getElementById('hi').innerHTML = $latitude</script>";
+
+  // Returning to main page
+  //header('Location: firefly.html');
+  //exit(0);
 ?>
