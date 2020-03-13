@@ -33,22 +33,29 @@
   return $result;
   }
 
-  function convertTextToID($uname, $mysqli, $testMsgs){
-    $SQL = "SELECT userID FROM users WHERE uname = '$uname'";
-    $uID = doSQL($mysqli, $SQL, $testMsgs);
-    $uname2 = "";
-    while($row = $uID->fetch_assoc()){
-      $uname2 = $row['userID'];
+  function getUserID($username, $testMsgs, $mysqli) {
+    $sql = "SELECT userID, uname FROM users;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    $userID = -1;
+
+    while($row = $result->fetch_assoc()) {
+      if ($username == $row['uname']) {
+        $userID = $row['userID'];
+        break;
+      }
     }
-    return $uname2;
   }
+
 
   $latitude = $_POST['latitude'];
   $longitude = $_POST['longitude'];
   $username = $_POST['username'];
-  $userID = convertTextToID();
+  $userID = getUSERID($username, $testMsgs, $mysqli);
 
   $mysqli->close();
-  
+
+  echo "<h1 id='hi'>Hello</h1>";
   echo "<script>alert(" . $latitude . $longitude . $username . $userID . ")</script";
+  echo "<script>document.getElementById('hi').innerHTML = $latitude";
 ?>
