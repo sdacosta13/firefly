@@ -55,9 +55,9 @@ function begin() {
     }
 
     // To initialise the map
-    initMap(markerLocations, descriptions);
+    initMap(markerLocations, descriptions, username);
 
-    function initMap(markerLocations, descriptions) {
+    function initMap(markerLocations, descriptions, username) {
       // Initialise and add the map
       var infoWindow;
       var person = null;
