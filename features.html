@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>feedback</title>
-    <meta content="feedback" property="og:title">
+    <title>About</title>
+    <meta content="About" property="og:title">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="Webflow" name="generator">
     <link href="css/webflow.css" rel="stylesheet" type="text/css">
@@ -19,10 +19,10 @@
                 <div class="main-navlinks-area container">
                     <nav class="navbar-links nav-menu" role="navigation"><a class="navlink nav-link"
                                                                             href="index.html">Home</a><a
-                            class="navlink nav-link" href="features.html">Features</a><a class="navlink nav-link"
-                                                                                         href="meet-the-team.html">The
-                        Team</a><a aria-current="page" class="navlink nav-link -current" href="feedback.html">Feedback</a>
-                    </nav>
+                            aria-current="page" class="navlink nav-link -current"
+                            href="features.html">Features</a><a class="navlink nav-link"
+                                                                href="meet-the-team.html">The Team</a><a
+                            class="navlink nav-link" href="feedback.html">Feedback</a></nav>
                 </div>
                 <div class="menu-button-area nav-button"><img alt="" height="24" src="images/menu_icon.svg"
                                                               width="24"></div>
@@ -58,56 +58,33 @@
         </div>
     </div>
 </div>
-<h1 class="heading">Feedback</h1>
-<section class="main-section" id="contact-form">
-    <div class="feedback-main-content-container container">
-        <p class="paragraph">Our team is alway looking to improve and enhance our user&#x27;s experience. If there&#x27;s
-            anything we can do to improve Firefly, please let us know by filling out the form below. Thanks from the
-            team!</p>
-        <div class="small-text" id="formInstructions"><em>Fields marked with an asterisk (*) are required.</em></div>
-        <div class="contact-form-block form" id="Contact-Form-Block">
-            <form data-name="Contact Form" id="wf-form-Contact-Form" name="wf-form-Contact-Form">
-                <div class="contact-form-grid">
-                    <div class="contact-form-div-block name" id="Contact-Form-Name-Div-Block">
-                        <label class="field-label" for="Name" id="Feedback-Name-Field-Label">Name *</label><input
-                            autofocus="true" class="text-field input" data-name="Name" id="Feedback-Name-Text-Field"
-                            maxlength="256"
-                            name="Name" placeholder="Your name" required="" type="text"></div>
-                    <div class="contact-form-div-block email" id="Contact-Form-Email-Div-Block">
-                        <label class="field-label" for="Email" id="Feedback-Email-Field-Label">Email *</label><input
-                            class="text-field input" data-name="Email" id="Feedback-Email-Text-Field" maxlength="256"
-                            name="Email"
-                            placeholder="Your email" required="" type="email"></div>
-                    <div class="contact-form-div-block issue" id="Contact-Form-Issue-Div-Block">
-                        <label class="field-label" for="Select-Field-2" id="Type-of-Issue-FIeld-Label">Type of
-                            Issue*</label><select class="select" data-name="Select Field"
-                                                  id="Feedback-Issue-Select-Field"
-                                                  name="Select-Field" required="">
-                        <option value="">Categories...</option>
-                        <option value="First">First Choice</option>
-                        <option value="Second">Second Choice</option>
-                        <option value="Third">Third Choice</option>
-                    </select></div>
-                    <div class="contact-form-div-block message" id="Contact-Form-Message-Div-Block">
-                        <label class="field-label" for="Message" id="Feedback-Message-Field-Label">Message
-                            *</label><textarea class="text-area input" data-name="Message" id="Feedback-Text-Area"
-                                               maxlength="5000" name="Message" required=""></textarea>
-                        <div class="form-formrecaptcha recaptcha g-recaptcha g-recaptcha-error g-recaptcha-disabled"
-                             data-sitekey="6LenBdoUAAAAADsN1gORilFPPXMcw5tGcipdJHZ9"></div>
-                    </div>
-                </div>
-                <input class="submit-button button" data-wait="Please wait..." id="Feedback-Submit-Button"
-                       type="submit"
-                       value="Submit"></form>
-            <div class="form-done">
-                <div>Thank you! Your submission has been received!</div>
-            </div>
-            <div class="form-fail">
-                <div>Oops! Something went wrong while submitting the form.</div>
-            </div>
+<h1 class="firefly-font-heading">Features</h1>
+<div class="section">
+    <div class="features-columns row">
+        <div class="feature-column col col-6">
+            <h2 class="feature-heading">Feature 1</h2>
+            <p class="feature-paragraph">This is a paragraph of text to explain this particular feature.</p>
+        </div>
+        <div class="feature-column-image col col-6"><img
+                alt=""
+                class="feature-image"
+                src="https://uploads-ssl.webflow.com/5db1c76aadcfe25e881680fa/5db86dc421496616bf357c25_placeholder.svg">
         </div>
     </div>
-</section>
+</div>
+<div class="section">
+    <div class="features-columns row">
+        <div class="feature-column-image col col-6"><img
+                alt=""
+                class="feature-image"
+                src="https://uploads-ssl.webflow.com/5db1c76aadcfe25e881680fa/5db86dc421496616bf357c25_placeholder.svg">
+        </div>
+        <div class="feature-column col col-6">
+            <h2 class="feature-heading">Feature 2</h2>
+            <p class="feature-paragraph">This is another paragraph which can be used to describe another feaure.</p>
+        </div>
+    </div>
+</div>
 <footer class="footer">
     <div class="footer-flex-container">
         <div class="footer-columns row">
@@ -124,7 +101,7 @@
                     <h2 class="footer-heading">Website Links</h2>
                     <ul class="list-unstyled">
                         <li><a class="footer-link" href="index.html">Home</a></li>
-                        <li><a class="footer-link" href="features.html">Features</a></li>
+                        <li><a aria-current="page" class="footer-link w--current" href="features.html">Features</a></li>
                         <li><a class="footer-link" href="meet-the-team.html">Meet the Team</a></li>
                     </ul>
                 </div>
@@ -133,8 +110,7 @@
                 <div class="footer-links-column">
                     <h2 class="footer-heading">  </h2>
                     <ul class="list-unstyled">
-                        <li><a aria-current="page" class="footer-link w--current" href="feedback.html">Send feedback</a>
-                        </li>
+                        <li><a class="footer-link" href="feedback.html">Send feedback</a></li>
                         <li><a class="footer-link" href="#">Login/Signup</a></li>
                     </ul>
                 </div>

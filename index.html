@@ -1,59 +1,72 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Firefly Main</title>
+  <title>Firefly</title>
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta name="author" content="Team Y1">
-  <meta name="keywords" content="index, main, home, firefly">
-  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/firefly-y1.webflow.css" rel="stylesheet" type="text/css">
   <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
 </head>
-<body>
-  <div data-collapse="medium" data-animation="over-left" data-duration="300" id="Index-Navbar" class="navbar nav"><a href="register.html" class="navlink nav-link">Signup</a><a href="login.html" class="navlink nav-link">Log In</a><img src="Icons/image_placeholder.svg" width="60" height="60" id="Index-Firefly-Logo-Navbar" alt="" class="firefly-logo">
-    <div id="Index-Navbar-Links-Container" class="navbar-area container">
-      <div class="menu-button-area nav-button">
-        <div class="menu-icon icon-nav-menu"></div>
+
+<body class="body">
+  <div class="navbar-columns row">
+    <div class="navbar-column-1 col col-5 col-medium-4 col-small-4 col-tiny-4">
+      <div class="navbar-navlinks-section">
+        <div data-collapse="medium" data-animation="over-left" data-duration="300" class="navbar nav">
+          <div class="main-navlinks-area container">
+            <nav role="navigation" class="navbar-links nav-menu"><a href="index.html" aria-current="page" class="navlink nav-link -current">Home</a><a href="features.html" class="navlink nav-link">Features</a><a href="meet-the-team.html" class="navlink nav-link">The Team</a><a href="feedback.html" class="navlink nav-link">Feedback</a></nav>
+          </div>
+          <div class="menu-button-area nav-button"><img src="images/menu_icon.svg" width="24" height="24" alt=""></div>
+        </div>
       </div>
-      <nav role="navigation" class="navbar-links clearfix nav-menu"><a href="#" class="navlink nav-link">Features</a><a href="#" class="navlink nav-link">Features</a><a href="#" class="navlink nav-link">About</a><a href="#" class="navlink nav-link">The Team</a><a href="#" class="navlink nav-link">Contact</a><a href="#" class="navlink nav-link">Contact</a></nav>
+    </div>
+    <div class="navbar-column-2 col col-2 col-medium-4 col-small-4 col-tiny-4">
+      <div class="navbar-firefyl-logo-section"><img class="firefly-navbar-logo" src="images/firefly_transparent_logo.png" width="60" height="60" alt="Header Firefly Logo" sizes="60px" data-ix="new-interaction" id="Index-Firefly-Logo-Navbar" srcset="images/firefly_transparent_logo-p-500.png 500w, images/firefly_transparent_logo-p-800.png 800w, images/firefly_transparent_logo-p-1080.png 1080w, images/firefly_transparent_logo-p-1600.png 1600w, images/firefly_transparent_logo.png 1989w"></div>
+    </div>
+    <div class="navbar-column-3 col col-5 col-medium-4 col-small-4 col-tiny-4"><a href="login.html" class="login-signup-button button">Login/ Signup</a>
+      <div class="settings-menu-section">
+        <div data-delay="0" class="dropdown dropdown">
+          <div class="dropdown-toggle dropdown-toggle"><img src="images/settings_icon.svg" width="24" height="24" alt="" class="settings-icon"><img src="images/menu_down_arrow.svg" width="16" height="16" alt="" class="menu-drowdown-arrow"></div>
+          <nav class="dropdown-list dropdown-list"><a href="#" class="dropdown-link dropdown-link">Link 1</a><a href="#" class="dropdown-link dropdown-link">Link 2</a><a href="#" class="dropdown-link dropdown-link">Link 3</a></nav>
+        </div>
+      </div>
     </div>
   </div>
   <h1 id="Index-Firefly-Heading" class="firefly-font-heading">Firefly</h1>
   <section id="Index-Main-Section" class="main-section">
-    <div class="centered-container container">
-      <div id="Map-Area" class="widget-map"></div>
-    </div>
+    <div id="Map-Area" class="map w-widget w-widget-map"></div>
   </section>
-  <footer id="footer" class="footer">
-    <div class="footer-container container">
-      <div class="footer-flex-container"><a href="#" class="footer-logo-link inline-block clearfix"><img src="images/firefly_transparent_logo.png" width="159" srcset="images/firefly_transparent_logo-p-500.png 500w, images/firefly_transparent_logo-p-800.png 800w, images/firefly_transparent_logo-p-1080.png 1080w, images/firefly_transparent_logo-p-1600.png 1600w, images/firefly_transparent_logo.png 1989w" sizes="(max-width: 479px) 159px, (max-width: 767px) 32vw, 159px" alt="" class="firefly-logo"></a>
-        <div>
-          <h2 class="footer-heading">Website Links</h2>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="#" class="footer-link">Features</a></li>
-            <li><a href="#" class="footer-link">About</a></li>
-            <li><a href="meet-the-team.html" class="footer-link">Meet the Team</a></li>
-          </ul>
+  <footer class="footer">
+    <div class="footer-flex-container">
+      <div class="footer-columns row">
+        <div class="footer-logo-column col col-4 col-stack w-col-small-small-stack"><a href="#" class="footer-logo-link inline-block"></a><img src="images/firefly_transparent_logo.png" id="Index-Firefly-Logo-Footer" width="120" alt="Footer Firefly Logo" srcset="images/firefly_transparent_logo-p-500.png 500w, images/firefly_transparent_logo-p-800.png 800w, images/firefly_transparent_logo-p-1080.png 1080w, images/firefly_transparent_logo-p-1600.png 1600w, images/firefly_transparent_logo.png 1989w" sizes="(max-width: 479px) 25vw, 111px" class="firefly-footer-logo"></div>
+        <div class="footer-links-column col col-4 col-stack w-col-small-small-stack">
+          <div class="footer-links-column">
+            <h2 class="footer-heading">Website Links</h2>
+            <ul class="list-unstyled">
+              <li><a href="index.html" aria-current="page" class="footer-link w--current">Home</a></li>
+              <li><a href="features.html" class="footer-link">Features</a></li>
+              <li><a href="meet-the-team.html" class="footer-link">Meet the Team</a></li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <h2 class="footer-heading">Heading Label</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="footer-link">Send feedback</a></li>
-            <li><a href="#" class="footer-link">Text Link</a></li>
-          </ul>
-        </div>
-        <div>
-          <h2 class="footer-heading">Heading Label</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="footer-link">Text Link</a></li>
-            <li><a href="#" class="footer-link">Text Link</a></li>
-            <li><a href="#" class="footer-link">Text Link</a></li>
-          </ul>
+        <div class="footer-links-column col col-4 col-stack w-col-small-small-stack">
+          <div class="footer-links-column">
+            <h2 class="footer-heading">  </h2>
+            <ul class="list-unstyled">
+              <li><a href="feedback.html" class="footer-link">Send feedback</a></li>
+              <li><a href="#" class="footer-link">Login/Signup</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="copyright-message">Firefly - produced by Team Y1</div>
+    </div>
+    <div class="footer-container container">
+      <div class="footer-made-by-y1-message">Firefly - produced by Team Y1</div>
     </div>
   </footer>
 
