@@ -52,10 +52,10 @@
     $sql = "SELECT placeID, longitude, latitude FROM places;";
     $result = doSQL($mysqli, $sql, $testMsgs);
 
-    $placeID = -1
+    $placeID = -1;
 
     while($row = $result->fetch_assoc()) {
-      if($longitude == $row['longitude'] and $latitude == $row['latitude']) {
+      if($longitude == round($row['longitude'], 6) and $latitude == round($row['latitude'], 6)) {
         $placeID = $row['placeID'];
         break;
       }
@@ -72,8 +72,10 @@
 
   $mysqli->close();
 
+  $toAlert = $latitude . $longitude . $username . $userID . $placeID;
+
   echo "<h1 id='hi'>Hello</h1>";
-  echo "<script type=\"text/javascript\">alert($latitude . $longitude . $username . $userID . $placeID)</script>";
+  echo "<script type=\"text/javascript\">alert($toAlert)</script>";
   echo "<script type=\"text/javascript\">document.getElementById('hi').innerHTML = $latitude</script>";
 
   // Returning to main page
