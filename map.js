@@ -123,7 +123,7 @@ function begin() {
               // Setting the values to send to the database
               document.getElementById('latitude').value = markerLocations[i].lat;
               document.getElementById("longitude").value = markerLocations[i].lng;
-              document.getElementById("username").value = descriptions[i];
+              document.getElementById("username").value = username;
               document.getElementById("sendtodb").submit();
 
               // Removing the marker
