@@ -33,5 +33,42 @@
     return $result;
   }
 
+  function getVisited($userID, $testMsgs, $mysqli){
+    $sql = "SELECT places.placeID
+    FROM places
+    LEFT JOIN userPlaces
+    ON places.placeID = userPlaces.placeID
+    WHERE userPlaces.userID = $userID";
+    $resultArr = array();
+    $i = 0;
+    $result = doSQL($mysqli, $sql, $testMsgs);
+    while($row = $result->fetch_assoc()){
+      $resultArr[$i] = $row["placeID"];
+      $i += 1;
+    }
+    return $resultArr;
+  }
+
+  function getTotalPlaces($mysqli, $testMsgs) {
+    $sql = "SELECT placeID FROM places";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    $numPlaces = sizeof($result);
+    return $numPlaces;
+  }
+
+  function getVisitedPlaces($userID, $mysqli, $testMsgs) {
+    $visited = getVisited($userID, $testMsgs, $mysqli);
+    $numVisited = sizeof($visited);
+    return $numVisited;
+  }
+
+  function getPercentage($userID, $mysqli, $testMsgs) {
+    $numPlaces = getTotalPlaces($mysqli, $testMsgs);
+    $numVisited = getVisitedPlaces($userID, $mysqli, $testMsgs);
+    $percentage = ($numVisited / $numPlaces) * 100;
+    return $percentage;
+  }
+
   $mysqli->close();
 ?>
