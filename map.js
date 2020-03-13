@@ -121,9 +121,9 @@ function begin() {
               alertMessage = alertMessage.concat("\n", "View your progress from the menu to find out more to find out more")
 
               // Setting the values to send to the database
-              document.getElementById('latitude').value = markerLocations[i].lat;
-              document.getElementById("longitude").value = markerLocations[i].lng;
-              document.getElementById("username").value = descriptions[i];
+              //document.getElementById('latitude').value = markerLocations[i].lat;
+              //document.getElementById("longitude").value = markerLocations[i].lng;
+              //document.getElementById("username").value = descriptions[i];
               //document.getElementById("sendtodb").submit();
 
               // Removing the marker
