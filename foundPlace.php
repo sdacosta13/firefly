@@ -55,7 +55,13 @@
     $placeID = -1;
 
     while($row = $result->fetch_assoc()) {
-      if($longitude == round($row['longitude'], 6) and $latitude == round($row['latitude'], 6)) {
+      if(round($longitude, 4) == round($row['longitude'], 4) and round($latitude, 4) == round($row['latitude'], 4)) {
+        $temp1 = round($longitude, 5);
+        $temp2 = round($row['longitude'], 5);
+        $temp3 = round($latitude, 5);
+        $temp4 = round($row['latitude'], 5);
+        $temp = $temp1 . $temp2 . $temp3 . $temp4;
+        echo "<p>$temp</p>";
         $placeID = $row['placeID'];
         break;
       }
