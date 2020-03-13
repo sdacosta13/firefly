@@ -124,7 +124,7 @@ function begin() {
               document.getElementById('latitude').value = markerLocations[i].lat;
               document.getElementById("longitude").value = markerLocations[i].lng;
               document.getElementById("username").value = descriptions[i];
-              document.getElementById("sendtodb").submit();
+              //document.getElementById("sendtodb").submit();
 
               // Removing the marker
               markers[i].setMap(null);
