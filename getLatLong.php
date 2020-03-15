@@ -112,7 +112,7 @@
     $username = "ERROR";
   }
 
-  $userID = getUSERID($username, $testMsgs, $mysqli);
+  $userID = getUserID($username, $testMsgs, $mysqli);
   if ($userID > 0) {
     $unvisited = getUnvisited($userID, $testMsgs, $mysqli);
     $data = getLatLongsMessage($unvisited, $testMsgs, $mysqli);

@@ -1,4 +1,5 @@
 <?php
+  session_start();
   //Make sure to enter your username and password in the variables at the top
   $testMsgs = false;
   //Initialise variables for DB connection
@@ -32,6 +33,65 @@
       $result = $conn->query($sql);
     return $result;
   }
+
+  function getUserID($username, $testMsgs, $mysqli) {
+    $sql = "SELECT userID, uname FROM users;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    $userID = -1;
+
+    while($row = $result->fetch_assoc()) {
+      if ($username == $row['uname']) {
+        $userID = $row['userID'];
+        break;
+      }
+    }
+  }
+
+  function getVisited($userID, $testMsgs, $mysqli){
+    $sql = "SELECT places.placeID
+    FROM places
+    LEFT JOIN userPlaces
+    ON places.placeID = userPlaces.placeID
+    WHERE userPlaces.userID = $userID";
+    $resultArr = array();
+    $i = 0;
+    $result = doSQL($mysqli, $sql, $testMsgs);
+    while($row = $result->fetch_assoc()){
+      $resultArr[$i] = $row["placeID"];
+      $i += 1;
+    }
+    return $resultArr;
+  }
+
+  function getTotalPlaces($mysqli, $testMsgs) {
+    $sql = "SELECT placeID FROM places";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    $numPlaces = sizeof($result);
+    return $numPlaces;
+  }
+
+  function getVisitedPlaces($userID, $mysqli, $testMsgs) {
+    $visited = getVisited($userID, $testMsgs, $mysqli);
+    $numVisited = sizeof($visited);
+    return $numVisited;
+  }
+
+  function getPercentage($userID, $mysqli, $testMsgs) {
+    $numPlaces = getTotalPlaces($mysqli, $testMsgs);
+    $numVisited = getVisitedPlaces($userID, $mysqli, $testMsgs);
+    $percentage = ($numVisited / $numPlaces) * 100;
+    return $percentage;
+  }
+
+  if ($_SESSION["user"] == true) {
+    $username = $_SESSION["username"];
+  } else {
+    $username = "ERROR";
+  }
+
+  $userID = getUSERID($username, $testMsgs, $mysqli);
 
   $mysqli->close();
 ?>
