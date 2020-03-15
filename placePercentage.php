@@ -46,6 +46,7 @@
         break;
       }
     }
+    return $userID;
   }
 
   function getVisited($userID, $testMsgs, $mysqli){
@@ -68,7 +69,10 @@
     $sql = "SELECT placeID FROM places";
     $result = doSQL($mysqli, $sql, $testMsgs);
 
-    $numPlaces = sizeof($result);
+    $numPlaces = 0;
+    while($row = $result->fetch_assoc()) {
+      $numPlaces += 1;
+    }
     return $numPlaces;
   }
 
@@ -91,7 +95,10 @@
     $username = "ERROR";
   }
 
-  $userID = getUSERID($username, $testMsgs, $mysqli);
+  $userID = getUserID($username, $testMsgs, $mysqli);
+  $percentage = getPercentage($userID, $mysqli, $testMsgs);
 
   $mysqli->close();
+
+  echo json_encode($percentage);
 ?>

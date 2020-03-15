@@ -1,3 +1,9 @@
+var slideNum = 1;
+
+function reqListener () {
+  console.log(this.responseText);
+}
+
 function openSlides() {
   document.getElementById("myModal").style.display = "block";
 }
@@ -5,9 +11,6 @@ function openSlides() {
 function closeSlides() {
   document.getElementById("myModal").style.display = "none";
 }
-
-var slideNum = 1;
-showSlides(slideNum);
 
 function plusSlides(unit) {
   showSlides(slideNum += unit);
@@ -22,7 +25,13 @@ function showSlides(unit) {
   var text = document.getElementById("caption");
   var state = document.getElementsByClassName("slideImage");
   var iterator;
-  if (unit > slides.length) {slideNum = 1}
+  if (unit > slides.length) {
+    slideNum = 1;
+  }
+
+  if (slideNum < 1) {
+    slideNum = 3;
+  }
 
   for (iterator = 0; iterator < slides.length; iterator++) {
     slides[iterator].style.display = "none";
@@ -36,10 +45,9 @@ function showSlides(unit) {
   state[slideNum-1].className += "active";
 }
 
-function changeProgress(){
+function changeProgress(x){
   var placesFound=0;
   var placesTotal = 3;
-  var x = (placesFound / placesTotal) *100;
   var image = document.getElementById('badge1');
   var image2 = document.getElementById('badge2');
   var image3 = document.getElementById('badge3');
@@ -54,12 +62,15 @@ function changeProgress(){
       image3.src ="discover.png" ;
   }
   var progBar = document.getElementById('bar');
-  if(placesFound==0){
-  progBar.style.width = "5%";}
-  if(placesFound==1){
-  progBar.style.width = "33%";}
-  if(placesFound==2){
-  progBar.style.width = "66%";}
-  if(placesFound==3){
-  progBar.style.width = "100%";}
+  var percent = x + "%";
+  progBar.style.width = percent;
 }
+
+var oReq = new XMLHttpRequest();
+oReq.onload = function() {
+    changeProgress(this.responseText);
+    var slideNum = 1;
+    showSlides(slideNum);
+};
+oReq.open("get", "placePercentage.php", true);
+oReq.send();
