@@ -115,12 +115,6 @@
 
   $mysqli->close();
 
-  $toAlert1 = $userID . $placeID;
-  $toAlert2 = $userID . $points;
-
-  echo "<script type=\"text/javascript\">alert($toAlert1)</script>";
-  echo "<script type=\"text/javascript\">alert($toAlert2)</script>";
-
   // Returning to main page
   header('Location: firefly.html');
   exit(0);
