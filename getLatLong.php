@@ -47,7 +47,7 @@
   function getUnvisited($userID, $testMsgs, $mysqli){
     $placeList = getPlaces($mysqli, $testMsgs);
 
-    $sql = "SELECT userPlaces.placeID FROM userPlaces WHERE userID = $userID";
+    $sql = "SELECT placeID FROM userPlaces WHERE userID = $userID";
     $visited = doSQL($mysqli, $sql, $testMsgs);
     $visitedList = array();
     while($row = $visited->fetch_assoc()){
@@ -104,6 +104,7 @@
         break;
       }
     }
+    return $userID;
   }
 
   if ($_SESSION["user"] == true) {

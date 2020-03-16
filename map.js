@@ -1,3 +1,5 @@
+var userIcon = "blue-dot.png";
+
 function reqListener () {
   console.log(this.responseText);
 }
@@ -105,7 +107,7 @@ function begin() {
 
           // Set marker for user's location
           if (person === null) {
-            person = new google.maps.Marker({position: pos, map: map});
+            person = new google.maps.Marker({position: pos, map: map, icon: userIcon});
           } else {
             person.setPosition(pos);
           }
