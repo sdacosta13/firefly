@@ -56,12 +56,6 @@
 
     while($row = $result->fetch_assoc()) {
       if(round($longitude, 4) == round($row['longitude'], 4) and round($latitude, 4) == round($row['latitude'], 4)) {
-        $temp1 = round($longitude, 5);
-        $temp2 = round($row['longitude'], 5);
-        $temp3 = round($latitude, 5);
-        $temp4 = round($row['latitude'], 5);
-        $temp = $temp1 . $temp2 . $temp3 . $temp4;
-        echo "<p>$temp</p>";
         $placeID = $row['placeID'];
         break;
       }
@@ -78,6 +72,20 @@
     return $points;
   }
 
+  function updatePoints($userID, $points, $testMsgs, $mysqli) {
+    $sql = "SELECT points FROM users WHERE userID = $userID;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+
+    while($row = $result->fetch_assoc()) {
+      $currentPoints = $row['points'];
+    }
+
+    $totalPoints = $points + $currentPoints;
+
+    $sql = "UPDATE users SET points = $totalPoints WHERE userID = $userID;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+  }
+
 
   $latitude = $_POST['latitude'];
   $longitude = $_POST['longitude'];
@@ -92,11 +100,10 @@
   $toAlert1 = $userID . $placeID;
   $toAlert2 = $userID . $points;
 
-  echo "<h1 id='hi'>Hello</h1>";
   echo "<script type=\"text/javascript\">alert($toAlert1)</script>";
   echo "<script type=\"text/javascript\">alert($toAlert2)</script>";
 
   // Returning to main page
-  //header('Location: firefly.html');
-  //exit(0);
+  header('Location: firefly.html');
+  exit(0);
 ?>
