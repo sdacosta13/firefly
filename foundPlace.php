@@ -86,6 +86,19 @@
     $result = doSQL($mysqli, $sql, $testMsgs);
   }
 
+  function userPlaces($userID, $placeID, $testMsgs, $mysqli) {
+    $sql = "SELECT * FROM userPlaces WHERE placeID = $placeID AND userID = $userID;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+    $numRows = $result->num_rows;
+    $success = false;
+    if ($numRows == 0) {
+      $sql = "INSERT INTO userPlaces (placeID, userID) VALUES ($placeID, $userID);";
+      $result = doSQL($mysqli, $sql, $testMsgs);
+      $success = true;
+    }
+    return $success;
+  }
+
 
   $latitude = $_POST['latitude'];
   $longitude = $_POST['longitude'];
@@ -94,6 +107,11 @@
   $userID = getUserID($username, $testMsgs, $mysqli);
   $placeID = getPlaceID($longitude, $latitude, $testMsgs, $mysqli);
   $points = getPoints($placeID, $testMsgs, $mysqli);
+
+  $success = userPlaces($userID, $placeID, $testMsgs, $mysqli);
+  if ($success) {
+    updatePoints($userID, $points, $testMsgs, $mysqli);
+  }
 
   $mysqli->close();
 
