@@ -92,7 +92,7 @@
       $sql = "SELECT description FROM places WHERE placeID = $visited[$i];";
       $result = doSQL($mysqli, $sql, $testMsgs);
       while($row = $result->fetch_assoc()) {
-        $descriptions[$i] = $row["description"];
+        $descriptions[$i] = $row["description"] . "!";
       }
       if (count($descriptions) < 1) {
         $descriptions = ["None!"];

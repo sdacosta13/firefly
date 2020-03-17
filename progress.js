@@ -89,7 +89,32 @@ oReq.onload = function() {
   message = message.concat(points, " points");
   document.getElementById("pointsNum").innerHTML =  message;
 
-  var slideNum = 1;
+  if (data[2] != "None!") {
+    // Getting the descriptions
+    var descriptionsStr = data[2].split("\\r\\n").join(" ");
+    descriptionsStr = descriptionsStr.split("\\r\\n").join("*");
+    descriptionsStr = descriptionsStr.split("\\").join("");
+    descriptionsStr = descriptionsStr.substring(1, data[2].length-1);
+    descriptions = descriptionsStr.split("!,");
+
+    // Getting the text to write to the html
+    var temp;
+    var finalText = "";
+    for (i = 0; i < descriptions.length; i++) {
+      temp = descriptions[i]
+      temp = temp.replace("!", "");
+      temp = temp.split("**")
+      for (j = 0; j < temp.length; j++) {
+        finalText = finalText.concat(temp[j], "<br>");
+      }
+      finalText = finalText.concat("<br>");
+    }
+
+    // Writing to the HTML
+    var descriptionText = document.getElementById("descriptionText");
+    descriptionText.innerHTML = finalText;
+  }
+
   showSlides(slideNum);
 };
 oReq.open("get", "placePercentage.php", true);
