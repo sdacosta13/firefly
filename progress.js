@@ -83,6 +83,12 @@ oReq.onload = function() {
   var percentage = parseFloat(data[0]);
   changeProgress(percentage);
 
+  // Getting the number of $points
+  var points = parseInt(data[1].substring(1));
+  var message =  "You currently have ";
+  message = message.concat(points, " points");
+  document.getElementById("pointsNum").innerHTML =  message;
+
   var slideNum = 1;
   showSlides(slideNum);
 };
