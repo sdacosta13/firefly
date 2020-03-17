@@ -68,7 +68,9 @@ function changeProgress(x){
 
 var oReq = new XMLHttpRequest();
 oReq.onload = function() {
-    changeProgress(this.responseText);
+    alert(this.responseText);
+
+    //changeProgress(this.responseText);
     var slideNum = 1;
     showSlides(slideNum);
 };
