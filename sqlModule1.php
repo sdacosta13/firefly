@@ -8,8 +8,8 @@
     $database_pass = "unidatabase2";
     $group_dbnames = array("2019_comp10120_y1");
     //$email = $_POST['email'];
-    $uname = $_POST['uname'];
-    $password = $_POST['password'];
+    $uname = $_POST['Username'];
+    $password = $_POST['Password'];
     $requestType = $_SERVER['REQUEST_METHOD'];
 
     $uname = stripcslashes($uname);
