@@ -63,9 +63,9 @@
 		}
 		return $uname2;
 	}
-	
+
 ?>
-    
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -93,8 +93,7 @@ Send a request to a user in order to share found map locations:
  </p>
 <?php
 
-//$uname = $_SESSION["username"];
-$uname = "sdacosta13";
+$uname = $_SESSION["username"];
 //$uname = convertIDToText($uname);
 $uname = convertTextToID($uname,$mysqli,$testMsgs);
 
