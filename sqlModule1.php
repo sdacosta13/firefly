@@ -122,6 +122,7 @@
 
 //    echo (addUser("Sam","da Costa","sdacosta15","no", "sam.dacosta2005@gmail.com", $testMsgs, $mysqli));
     if($requestType == 'POST'){
+	$password = hash("sha256",$password);
 	if(loginUser($uname, $password, $testMsgs, $mysqli) == "Login"){
 	   echo("good");
 	   header("Location: firefly.html");

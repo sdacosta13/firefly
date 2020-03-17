@@ -124,18 +124,20 @@
 //    echo (addUser("Sam","da Costa","sdacosta15","no", "sam.dacosta2005@gmail.com", $testMsgs, $mysqli));
     if($requestType == 'POST'){
 	if($password == $confirmPWD){
+	    $password = hash("sha256",$password);
 	    if(addUser($uname, $password, $email, $testMsgs, $mysqli) == True){
 	       echo("good");
 	       header("Location: firefly.html");
 	    } else {
 		echo("fail");
 		echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='register.html';</script>");
-		header("http://localhost/php/register.html");
+		header("Location: register.html");
     
 	    }
 	} else {
+	    header("Location: register.html");
 	    echo("<script type='text/javascript>alert('Passwords do not match');location.href='register.html';</script>");
-	    header("http://localhost/php/register.html");
+	    
 	}
 	//echo(loginUser($uname, $password, $testMsgs, $mysqli));
 	$mysqli->close();
