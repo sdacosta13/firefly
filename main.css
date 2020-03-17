@@ -48,7 +48,7 @@ input[type="checkbox"] {
     transition-timing-function:ease;
     transition-duration: 1s;
     flex-shrink: 4;
-
+    color: white;
 }
 
 input[type="checkbox"]:checked + #sidebar {
