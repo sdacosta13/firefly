@@ -1,4 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -25,30 +26,55 @@
                      width="994.5">
                 <div class="login-slogan-text-block">Light up Manchester</div>
             </div>
-            <form action="sqlModule1.php" method="post">
-                <label>
-                    <input type="text" value="username" name="uname" class="username" onfocus="if(value==='username'){value=''; this.style.color='#000'}" onblur="if(value===''){value='username'; this.style.color='#adadad'}">
-                </label>
-                <label>
-                    <input type="text" value="password" name="password" class="password" onfocus="if(value==='password'){value=''; this.style.color='#000'; type='password'}" onblur="if(value===''){value='password'; this.style.color='#adadad'; type='text'}">
-                </label>
-                <input type="submit" value="LOG IN" class="login">
-            </form>
-            <div class="createAccount">
-                <a href="register.html">Create a free account</a>
-            </div>
-            <div class="forgotPassword">
-                <a href="email-verification.html">Forgot password</a>
-            </div>
-        </div>
-        <div class="background">
-            <div class="firefly_pic">
-                <img src="firefly%20original.jpg" alt="firefly">
-             </div>
-            <div class="firefly_des">
-                <img src="firefly%20words.jpg" alt="description">
+            <div class="login-column col col-6">
+                <h3 class="login-heading">Log in</h3>
+                <div class="form-block form">
+                    <form action="sqlModule1.php" method="post" class="form" data-name="Login Form" id="Login-Form" name="form-Login-Form"><input
+                            autofocus="true" class="text-field input" data-name="Username" id="Username"
+                            maxlength="256"
+                            name="Username" placeholder="username" required="" type="text"><input
+                            class="text-field input"
+                            data-name="Password"
+                            id="Password"
+                            maxlength="256"
+                            name="Password"
+                            placeholder="password"
+                            required=""
+                            type="password">
+                        <input class="login-button button" data-wait="Please wait..." type="submit" value="Log in">
+                        <a class="link" href="email-verification.html">Create a free account</a>
+                        <a class="link" href="register.html">Forgotten
+                        Password</a></form>
+                </div>
             </div>
         </div>
     </div>
+</header>
+<footer class="login-footer">
+    <h2 class="footer-heading">Website Links</h2>
+    <div class="footer-columns row">
+        <div class="footer-links-column col col-6">
+            <div class="footer-links-column">
+                <ul class="login-footer-links-column list-unstyled">
+                    <li><a class="footer-link" href="index.html">Home</a></li>
+                    <li><a class="footer-link" href="features.html">Features</a></li>
+                    <li><a class="footer-link" href="meet-the-team.html">Meet the Team</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-links-column col col-6">
+            <div class="footer-links-column">
+                <ul class="list-unstyled">
+                    <li><a class="footer-link" href="feedback.html">Send feedback</a></li>
+                    <li><a class="footer-link" href="#">Login/Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-container container">
+        <div class="footer-made-by-y1-message">Firefly - produced by Team Y1</div>
+    </div>
+</footer>
+
 </body>
 </html>
