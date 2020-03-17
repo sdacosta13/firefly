@@ -52,14 +52,14 @@ function changeProgress(x){
   var image2 = document.getElementById('badge2');
   var image3 = document.getElementById('badge3');
   var progBar = document.getElementById('bar');
-  if (image.src.match("question.png") && x>0) {
-      image.src ="006-bonfire.png" ;
+  if (image.src.match("images/question.png") && x>0) {
+      image.src ="images/006-bonfire.png" ;
   }
-  if (image2.src.match("question.png") && x>=50) {
-      image2.src ="007-compass.png" ;
+  if (image2.src.match("images/question.png") && x>=50) {
+      image2.src ="images/007-compass.png" ;
   }
-  if (image3.src.match("question.png") && x==100) {
-      image3.src ="discover.png" ;
+  if (image3.src.match("images/question.png") && x==100) {
+      image3.src ="images/discover.png" ;
   }
   var progBar = document.getElementById('bar');
   var percent = x + "%";
