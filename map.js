@@ -116,7 +116,7 @@ function begin() {
 
           // Check if user is near buildings
           for (i = 0; i < markerLocations.length; i++) {
-            if ((Math.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.01)) {
+            if ((Math.abs(pos.lat - markerLocations[i].lat) <= 0.001) && (Math.abs(pos.lng - markerLocations[i].lng) <= 0.001)) {
               // Setting up the message for the user
               var alertMessage = "You have found a building"
               alertMessage = alertMessage.concat("\n", descriptions[i]);
