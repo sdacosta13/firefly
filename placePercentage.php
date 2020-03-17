@@ -94,6 +94,9 @@
       while($row = $result->fetch_assoc()) {
         $descriptions[$i] = $row["description"];
       }
+      if (count($descriptions) < 1) {
+        $descriptions = ["None!"];
+      }
     }
     return $descriptions;
   }
@@ -127,7 +130,9 @@
   $mysqli->close();
 
   $data = [strval($percentage) . "*", strval($points) . "*"];
-  $data = array_merge
+  for ($i = 0; $i < count($descriptions); $i++) {
+    array_push($data, $descriptions[$i]);
+  }
 
   echo json_encode($data);
 ?>
