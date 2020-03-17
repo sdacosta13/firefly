@@ -68,9 +68,54 @@ function changeProgress(x){
 
 var oReq = new XMLHttpRequest();
 oReq.onload = function() {
-    changeProgress(this.responseText);
-    var slideNum = 1;
-    showSlides(slideNum);
+  // Get the text from the PHP file that accesses the database
+  var datastr = this.responseText;
+
+  // Clean the string that is input
+  datastr = datastr.replace("[", "");
+  datastr = datastr.replace("]", "");
+  datastr = datastr.split("\"").join("");
+
+  // Split the string into an array
+  var data = datastr.split("*");
+
+  // Get the percentage visited
+  var percentage = parseFloat(data[0]);
+  changeProgress(percentage);
+
+  // Getting the number of $points
+  var points = parseInt(data[1].substring(1));
+  var message =  "You currently have ";
+  message = message.concat(points, " points");
+  document.getElementById("pointsNum").innerHTML =  message;
+
+  if (data[2] != "None!") {
+    // Getting the descriptions
+    var descriptionsStr = data[2].split("\\r\\n").join(" ");
+    descriptionsStr = descriptionsStr.split("\\r\\n").join("*");
+    descriptionsStr = descriptionsStr.split("\\").join("");
+    descriptionsStr = descriptionsStr.substring(1, data[2].length-1);
+    descriptions = descriptionsStr.split("!,");
+
+    // Getting the text to write to the html
+    var temp;
+    var finalText = "";
+    for (i = 0; i < descriptions.length; i++) {
+      temp = descriptions[i]
+      temp = temp.replace("!", "");
+      temp = temp.split("**")
+      for (j = 0; j < temp.length; j++) {
+        finalText = finalText.concat(temp[j], "<br>");
+      }
+      finalText = finalText.concat("<br>");
+    }
+
+    // Writing to the HTML
+    var descriptionText = document.getElementById("descriptionText");
+    descriptionText.innerHTML = finalText;
+  }
+
+  showSlides(slideNum);
 };
 oReq.open("get", "placePercentage.php", true);
 oReq.send();

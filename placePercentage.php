@@ -19,20 +19,20 @@
   }
 
   function doSQL($conn, $sql, $testMsgs)
+{
+  if ($testMsgs)
   {
-    if ($testMsgs)
-    {
-      //echo("<br><code>SQL: $sql</code>");
-      if ($result = $conn->query($sql)) {
-        //echo("<code> - OK</code>");
-      } else {
-        echo("<code> - FAIL! " . $conn->error." </code>");
-      }
+    //echo("<br><code>SQL: $sql</code>");
+    if ($result = $conn->query($sql)) {
+      //echo("<code> - OK</code>");
+    } else {
+      echo("<code> - FAIL! " . $conn->error." </code>");
     }
-    else
-      $result = $conn->query($sql);
-    return $result;
   }
+  else
+    $result = $conn->query($sql);
+  return $result;
+}
 
   function getUserID($username, $testMsgs, $mysqli) {
     $sql = "SELECT userID, uname FROM users;";
@@ -50,11 +50,7 @@
   }
 
   function getVisited($userID, $testMsgs, $mysqli){
-    $sql = "SELECT places.placeID
-    FROM places
-    LEFT JOIN userPlaces
-    ON places.placeID = userPlaces.placeID
-    WHERE userPlaces.userID = $userID";
+    $sql = "SELECT placeID FROM userPlaces WHERE userID = $userID";
     $resultArr = array();
     $i = 0;
     $result = doSQL($mysqli, $sql, $testMsgs);
@@ -89,6 +85,31 @@
     return $percentage;
   }
 
+  function getDescriptions($userID, $mysqli, $testMsgs) {
+    $visited = getVisited($userID, $testMsgs, $mysqli);
+    $descriptions = array();
+    for ($i = 0; $i < count($visited); $i++) {
+      $sql = "SELECT description FROM places WHERE placeID = $visited[$i];";
+      $result = doSQL($mysqli, $sql, $testMsgs);
+      while($row = $result->fetch_assoc()) {
+        $descriptions[$i] = $row["description"] . "!";
+      }
+      if (count($descriptions) < 1) {
+        $descriptions = ["None!"];
+      }
+    }
+    return $descriptions;
+  }
+
+  function getPoints($userID, $mysqli, $testMsgs) {
+    $sql = "SELECT points FROM users WHERE userID = $userID;";
+    $result = doSQL($mysqli, $sql, $testMsgs);
+    while ($row = $result->fetch_assoc()) {
+      $points = $row["points"];
+    }
+    return $points;
+  }
+
   if ($_SESSION["user"] == true) {
     $username = $_SESSION["username"];
   } else {
@@ -96,9 +117,22 @@
   }
 
   $userID = getUserID($username, $testMsgs, $mysqli);
-  $percentage = getPercentage($userID, $mysqli, $testMsgs);
+  if ($userID >= 0) {
+    $percentage = getPercentage($userID, $mysqli, $testMsgs);
+    $descriptions = getDescriptions($userID, $mysqli, $testMsgs);
+    $points = getPoints($userID, $mysqli, $testMsgs);
+  } else {
+    $percentage = 0.0;
+    $descriptions = ["None!"];
+    $points = 0;
+  }
 
   $mysqli->close();
 
-  echo json_encode($percentage);
+  $data = [strval($percentage) . "*", strval($points) . "*"];
+  for ($i = 0; $i < count($descriptions); $i++) {
+    array_push($data, $descriptions[$i]);
+  }
+
+  echo json_encode($data);
 ?>
