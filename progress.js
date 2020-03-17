@@ -68,11 +68,23 @@ function changeProgress(x){
 
 var oReq = new XMLHttpRequest();
 oReq.onload = function() {
-    alert(this.responseText);
+  // Get the text from the PHP file that accesses the database
+  var datastr = this.responseText;
 
-    //changeProgress(this.responseText);
-    var slideNum = 1;
-    showSlides(slideNum);
+  // Clean the string that is input
+  datastr = datastr.replace("[", "");
+  datastr = datastr.replace("]", "");
+  datastr = datastr.split("\"").join("");
+
+  // Split the string into an array
+  var data = datastr.split("*");
+
+  // Get the percentage visited
+  var percentage = parseFloat(data[0]);
+  changeProgress(percentage);
+
+  var slideNum = 1;
+  showSlides(slideNum);
 };
 oReq.open("get", "placePercentage.php", true);
 oReq.send();
