@@ -8,8 +8,8 @@
     $database_pass = "unidatabase2";
     $group_dbnames = array("2019_comp10120_y1");
     //$email = $_POST['email'];
-    $uname = $_POST['uname'];
-    $password = $_POST['password'];
+    $uname = $_POST['Username'];
+    $password = $_POST['Password'];
     $requestType = $_SERVER['REQUEST_METHOD'];
 
     $uname = stripcslashes($uname);
@@ -122,6 +122,7 @@
 
 //    echo (addUser("Sam","da Costa","sdacosta15","no", "sam.dacosta2005@gmail.com", $testMsgs, $mysqli));
     if($requestType == 'POST'){
+	$password = hash("sha256",$password);
 	if(loginUser($uname, $password, $testMsgs, $mysqli) == "Login"){
 	   echo("good");
 	   header("Location: firefly.html");
