@@ -7,9 +7,10 @@
     $database_user = "p11469sd";
     $database_pass = "unidatabase2";
     $group_dbnames = array("2019_comp10120_y1");
-    //$email = $_POST['email'];
+    $email = $_POST['email'];
     $uname = $_POST['uname'];
     $password = $_POST['password'];
+    $confirmPWD = $_POST['confirmPwd'];
     $requestType = $_SERVER['REQUEST_METHOD'];
 
     $uname = stripcslashes($uname);
@@ -51,9 +52,9 @@
 			$result = $conn->query($sql);
 		return $result;
 	}
-    function addUser($fname,$sname,$uname,$password,$email, $testMsgs, $mysqli){
+    function addUser($uname,$password,$email, $testMsgs, $mysqli){
 	if (!checkNewValidUser($uname, $email, $testMsgs,$mysqli)){
-	    $sql = "INSERT INTO users (fname, sname, uname, password, email) VALUES ('$fname','$sname','$uname','$password','$email')";
+	    $sql = "INSERT INTO users (uname, password, email) VALUES ('$uname','$password','$email')";
 
 	    doSQL($mysqli, $sql, $testMsgs);
 	    return True;
@@ -97,7 +98,7 @@
 	return $login;
 
     }
-    function loginUser($uname, $password, $testMsgs, $mysqli){
+    function loginUser($fname, $sname, $uname, $password, $email, $testMsgs, $mysqli){
 	if (checkUserNameInDB($uname, $testMsgs, $mysqli)){
 	    if(grantLogin($uname, $password, $testMsgs,$mysqli)){
 	        $_SESSION['user'] = true;
@@ -122,15 +123,21 @@
 
 //    echo (addUser("Sam","da Costa","sdacosta15","no", "sam.dacosta2005@gmail.com", $testMsgs, $mysqli));
     if($requestType == 'POST'){
-	$password = hash("sha256",$password);
-	if(loginUser($uname, $password, $testMsgs, $mysqli) == "Login"){
-	   echo("good");
-	   header("Location: firefly.html");
+	if($password == $confirmPWD){
+	    $password = hash("sha256",$password);
+	    if(addUser($uname, $password, $email, $testMsgs, $mysqli) == True){
+	       echo("good");
+	       header("Location: firefly.html");
+	    } else {
+		echo("fail");
+		echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='register.html';</script>");
+		header("Location: register.html");
+    
+	    }
 	} else {
-	    echo("fail");
-	    echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='login.html';</script>");
-	    // header("http://localhost/php/login.html");
-
+	    header("Location: register.html");
+	    echo("<script type='text/javascript>alert('Passwords do not match');location.href='register.html';</script>");
+	    
 	}
 	//echo(loginUser($uname, $password, $testMsgs, $mysqli));
 	$mysqli->close();
