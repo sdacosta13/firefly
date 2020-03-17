@@ -1,4 +1,4 @@
-var userIcon = "blue-dot.png";
+var userIcon = "images/blue-dot.png";
 
 function reqListener () {
   console.log(this.responseText);
@@ -92,7 +92,7 @@ function begin() {
       };
       var fogOverlay;
       fogOverlay = new google.maps.GroundOverlay(
-        'fog.png',
+        'images/fog.png',
         imageBounds);
       fogOverlay.setMap(map);
       fogOverlay.setOpacity(0.5);
@@ -123,10 +123,10 @@ function begin() {
               alertMessage = alertMessage.concat("\n", "View your progress from the menu to find out more to find out more")
 
               // Setting the values to send to the database
-              //document.getElementById('latitude').value = markerLocations[i].lat;
-              //document.getElementById("longitude").value = markerLocations[i].lng;
-              //document.getElementById("username").value = descriptions[i];
-              //document.getElementById("sendtodb").submit();
+              document.getElementById('latitude').value = markerLocations[i].lat;
+              document.getElementById("longitude").value = markerLocations[i].lng;
+              document.getElementById("username").value = descriptions[i];
+              document.getElementById("sendtodb").submit();
 
               // Removing the marker
               markers[i].setMap(null);
