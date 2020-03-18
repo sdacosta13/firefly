@@ -22,6 +22,8 @@ img {
     max-width: 100%;
     vertical-align: middle;
     display: inline-block;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 
@@ -2343,5 +2345,3 @@ label {
     font-weight: 900;
     font-style: normal;
 }
-
-
