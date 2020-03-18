@@ -26,10 +26,6 @@ img {
     justify-content: space-between;
 }
 
-.features-columns row{
-  display: flex;
-  flex-flow: column nowrap;
-}
 
 .inline-block {
     max-width: 100%;
@@ -1074,10 +1070,93 @@ label {
     box-shadow: 1px 1px 3px 0 #000;
 }
 
+.register-flex-container {
+    position: static;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px auto;
+    padding: 2%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px 0 #000;
+}
+
+.email-ver-flex-container {
+    position: static;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px auto;
+    padding: 2%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    grid-auto-columns: 1fr;
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    -ms-grid-rows: auto auto;
+    grid-template-rows: auto auto;
+    background-color: #fff;
+    box-shadow: 1px 1px 3px 0 #000;
+}
+
 .feature-image {
     width: auto;
     height: auto;
-    max-width: 50%;
     max-width: none;
     float: none;
     clear: none;
@@ -1227,6 +1306,20 @@ label {
     align-items: stretch;
 }
 
+.register-container {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+.email-ver-container {
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
 .firefly-login-logo-mask {
     width: auto;
     margin-right: 0px;
@@ -1234,6 +1327,54 @@ label {
 }
 
 .firefly-login-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 128px;
+    max-width: 128%;
+    margin: 10px auto;
+    padding: 5px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0.5 auto;
+    -ms-flex: 0 0.5 auto;
+    flex: 0 0.5 auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 50% 50%;
+    object-position: 50% 50%;
+}
+
+.firefly-register-logo-mask {
+    width: auto;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.firefly-register-logo {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 128px;
+    max-width: 128%;
+    margin: 10px auto;
+    padding: 5px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0.5 auto;
+    -ms-flex: 0 0.5 auto;
+    flex: 0 0.5 auto;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 50% 50%;
+    object-position: 50% 50%;
+}
+
+.firefly-email-ver-logo-mask {
+    width: auto;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.firefly-email-ver-logo {
     display: block;
     width: auto;
     height: auto;
@@ -1275,6 +1416,94 @@ label {
 }
 
 .login-body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.register-heading {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px auto;
+    padding-bottom: 0%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.register-body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.email-ver-heading {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 10px auto;
+    padding-bottom: 0%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.email-ver-body {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -1386,6 +1615,84 @@ label {
     align-content: center;
 }
 
+.register-columns {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 2%;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+.register-column {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.email-ver-columns {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 2%;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+.email-ver-column {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
 .form-block {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1425,6 +1732,54 @@ label {
 }
 
 .login-slogan-text-block {
+    margin: 10px auto;
+    font-family: FashionFetishItalic, sans-serif;
+    text-align: center;
+}
+
+.register-firefly-text-block {
+    display: block;
+    margin: 10px auto;
+    padding: 0px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    font-family: FashionFetishBold, sans-serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+.register-slogan-text-block {
+    margin: 10px auto;
+    font-family: FashionFetishItalic, sans-serif;
+    text-align: center;
+}
+
+.email-ver-firefly-text-block {
+    display: block;
+    margin: 10px auto;
+    padding: 0px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    font-family: FashionFetishBold, sans-serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+.email-ver-slogan-text-block {
     margin: 10px auto;
     font-family: FashionFetishItalic, sans-serif;
     text-align: center;
@@ -1501,7 +1856,91 @@ label {
     text-align: center;
 }
 
+.register-footer {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: none;
+    clear: left;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
+    align-self: auto;
+    border-top: 1px solid #ddd;
+    border-radius: 0px;
+    color: #000;
+    text-align: center;
+}
+
+.email-ver-footer {
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    float: none;
+    clear: left;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    -ms-grid-row-align: auto;
+    align-self: auto;
+    border-top: 1px solid #ddd;
+    border-radius: 0px;
+    color: #000;
+    text-align: center;
+}
+
 .login-button {
+    margin: 5px auto;
+}
+
+.register-button {
+    margin: 5px auto;
+}
+
+.email-ver-button {
     margin: 5px auto;
 }
 
@@ -1740,6 +2179,24 @@ label {
     }
 
     .login-flex-container {
+         padding: 20px 2%;
+         -webkit-box-orient: horizontal;
+         -webkit-box-direction: normal;
+         -webkit-flex-direction: row;
+         -ms-flex-direction: row;
+         flex-direction: row;
+     }
+
+    .register-flex-container {
+        padding: 20px 2%;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .email-ver-flex-container {
         padding: 20px 2%;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -1771,11 +2228,51 @@ label {
         margin-bottom: 20px;
     }
 
+    .register-container {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .register-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .email-ver-container {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .email-ver-body {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
     .firefly-navbar-logo {
         float: right;
     }
 
     .login-footer {
+        display: block;
+        padding-right: 0px;
+        padding-left: 0px;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .register-footer {
+        display: block;
+        padding-right: 0px;
+        padding-left: 0px;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+
+    .email-ver-footer {
         display: block;
         padding-right: 0px;
         padding-left: 0px;
@@ -1903,6 +2400,28 @@ label {
         flex-direction: row;
     }
 
+    .register-flex-container {
+        margin: 20px auto;
+        padding-right: 2%;
+        padding-left: 2%;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
+    .email-ver-flex-container {
+        margin: 20px auto;
+        padding-right: 2%;
+        padding-left: 2%;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+
     .feature-image {
         margin-right: auto;
         margin-left: auto;
@@ -1927,6 +2446,18 @@ label {
         padding: 0px;
     }
 
+    .register-container {
+        margin-right: 0%;
+        margin-left: 0%;
+        padding: 0px;
+    }
+
+    .email-ver-container {
+        margin-right: 0%;
+        margin-left: 0%;
+        padding: 0px;
+    }
+
     .firefly-login-logo-mask {
         margin-right: 0px;
         margin-left: 0px;
@@ -1937,6 +2468,34 @@ label {
     }
 
     .login-body {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .firefly-register-logo-mask {
+        margin-right: 0px;
+        margin-left: 0px;
+        -webkit-box-ordinal-group: 0;
+        -webkit-order: -1;
+        -ms-flex-order: -1;
+        order: -1;
+    }
+
+    .register-body {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .firefly-email-ver-logo-mask {
+        margin-right: 0px;
+        margin-left: 0px;
+        -webkit-box-ordinal-group: 0;
+        -webkit-order: -1;
+        -ms-flex-order: -1;
+        order: -1;
+    }
+
+    .email-ver-body {
         margin-right: 0%;
         margin-left: 0%;
     }
@@ -1959,10 +2518,25 @@ label {
         padding: 0px 0px 20px;
     }
 
+    .register-footer {
+        margin-top: 0px;
+        padding: 0px 0px 20px;
+    }
+
+    .emamil-ver-footer {
+        margin-top: 0px;
+        padding: 0px 0px 20px;
+    }
+
     .section {
         margin-right: 10px;
         margin-left: 10px;
     }
+
+    .login-signup-button {
+        max-width: 80px;
+    }
+
 }
 
 @media screen and (max-width: 479px) {
@@ -2096,6 +2670,38 @@ label {
         align-items: center;
     }
 
+    .register-flex-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .email-ver-flex-container {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
     .dropdown-toggle {
         max-width: 60px;
         padding-right: 15px;
@@ -2112,6 +2718,24 @@ label {
     }
 
     .login-body {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .register-container {
+        margin: 10px 1%;
+    }
+
+    .register-body {
+        margin-right: 0%;
+        margin-left: 0%;
+    }
+
+    .email-ver-container {
+        margin: 10px 1%;
+    }
+
+    .email-ver-body {
         margin-right: 0%;
         margin-left: 0%;
     }
@@ -2133,6 +2757,20 @@ label {
     }
 
     .login-footer {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0px 0px 20px;
+        text-align: left;
+    }
+
+    .register-footer {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding: 0px 0px 20px;
+        text-align: left;
+    }
+
+    .email-ver-footer {
         margin-top: 0px;
         margin-bottom: 0px;
         padding: 0px 0px 20px;
