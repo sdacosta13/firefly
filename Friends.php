@@ -71,25 +71,60 @@
 <style>
 #rcorners2 {
   border-radius: 25px;
-  border: 2px solid #73AD21;
+  border: 2px solid #165cff;
   padding: 20px;
-  width: 500px;
-  height: 150px;
+  width: 90%;
+  height: 30%;
+  background-color: #9ccaff;
+  margin-left: auto;
+    margin-right: auto;
 }
 .rcorners2 {
   border-radius: 25px;
-  border: 2px solid #73AD21;
+  border: 2px solid #165cff;
   padding: 20px;
-  width: 500px;
-  height: 50px;
+  width: 90%;
+  height: 30%;
+  background-color: #9ccaff;
+  margin-left: auto;
+    margin-right: auto;
+}
+a{
+text-align: center;
+position: center;
+background-color: #9ccaff;
+width: 100%;
+height: 10%;
+margin:0;
+padding:0;
+text-decoration: none;
+color: black;
+font-size: 2.5rem;
+display: block;
+}
+body{
+background-color: #fff;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   position: center;
+   width: 10%;
+}
+div{
+  bottom:0;
+  width:100%;
 }
 </style>
+<body>
+<a href=firefly.html>Back</a>
 <p id="rcorners2">
-Send a request to a user in order to share found map locations:
+Send a request to a user:
                 <label>
                     <input type="text" value="username" name="uname" id="rqUser" onfocus="if(value==='username'){value=''; this.style.color='#000'}" onblur="if(value===''){value='username'; this.style.color='#adadad'}">
                 </label>
-                <button type="button" onclick="makeRequestJS();">Send</button>
+                <button type="button" onclick="makeRequestJS();">Send</button><br>Accepting/Sending an accepted request will share all map locations that either user has been to for both users
  </p>
 <?php
 
@@ -100,11 +135,13 @@ $uname = convertTextToID($uname,$mysqli,$testMsgs);
 $boxArray = getRequests($uname,$mysqli,$testMsgs);//(check this line should work as intended)
 $requestNum = count($boxArray);
   for($i=0;$i<$requestNum;$i++){
-        echo "<p class=\"rcorners2\" id=\"",$i,"\"> Request to share from: ",$boxArray[$i], "<input type=\"button\" value=\"Accept\" id=\"",$i,"\" onclick=\"acceptJS(this.id)\">
-        <input type=\"button\" value=\"Deny\" id=\"",$i,"\" onclick=\"denyJS(this.id)\">";
+        echo "<p class=\"rcorners2\" id=\"",$i,"\"> Request to share from: ",$boxArray[$i], "  <input type=\"button\" value=\"Accept\" id=\"",$i,"\" onclick=\"acceptJS(this.id)\">
+        <input type=\"button\" value=\"Deny\" id=\"",$i,"\" onclick=\"denyJS(this.id)\"></p>";
 }
 ?>
-
+<img
+                    alt="Footer Firefly Logo" class="footer"
+                    src="images/firefly_transparent_logo.png">
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript" language="javascript">
