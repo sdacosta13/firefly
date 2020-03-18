@@ -7,10 +7,10 @@
     $database_user = "p11469sd";
     $database_pass = "unidatabase2";
     $group_dbnames = array("2019_comp10120_y1");
-    $email = $_POST['email'];
-    $uname = $_POST['uname'];
-    $password = $_POST['password'];
-    $confirmPWD = $_POST['confirmPwd'];
+    $email = $_POST['Email'];
+    $uname = $_POST['Username'];
+    $password = $_POST['Password'];
+    $confirmPWD = $_POST['Confirm-Password'];
     $requestType = $_SERVER['REQUEST_METHOD'];
 
     $uname = stripcslashes($uname);
