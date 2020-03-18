@@ -26,6 +26,10 @@ img {
     justify-content: space-between;
 }
 
+.features-columns row{
+  display: flex;
+  flex-flow: column nowrap;
+}
 
 .inline-block {
     max-width: 100%;
@@ -1073,6 +1077,7 @@ label {
 .feature-image {
     width: auto;
     height: auto;
+    max-width: 50%;
     max-width: none;
     float: none;
     clear: none;
