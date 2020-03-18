@@ -127,17 +127,17 @@
 	    $password = hash("sha256",$password);
 	    if(addUser($uname, $password, $email, $testMsgs, $mysqli) == True){
 	       echo("good");
-	       header("Location: firefly.html");
+	       header("<script type='text/javascript'>alert('Account successfully created \nLogin to continue');location.href='login.html';</script>");
 	    } else {
 		echo("fail");
 		echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='register.html';</script>");
 		header("Location: register.html");
-    
+
 	    }
 	} else {
 	    header("Location: register.html");
 	    echo("<script type='text/javascript>alert('Passwords do not match');location.href='register.html';</script>");
-	    
+
 	}
 	//echo(loginUser($uname, $password, $testMsgs, $mysqli));
 	$mysqli->close();
