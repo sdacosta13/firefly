@@ -125,7 +125,7 @@
 	$password = hash("sha256",$password);
 	if(loginUser($uname, $password, $testMsgs, $mysqli) == "Login"){
 	   echo("good");
-	   header("Location: firefly.html");
+	   header("Location: firefly.php");
 	} else {
 	    echo("fail");
 	    echo("<script type='text/javascript'>alert('Username or password is incorrect');location.href='login.html';</script>");
