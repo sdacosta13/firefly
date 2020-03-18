@@ -89,7 +89,7 @@ oReq.onload = function() {
   message = message.concat(points, " points");
   document.getElementById("pointsNum").innerHTML =  message;
 
-  if (data[2] != "None!") {
+  if (data[2] != "" && data[2] != "None!") {
     // Getting the descriptions
     var descriptionsStr = data[2].split("\\r\\n").join(" ");
     descriptionsStr = descriptionsStr.split("\\r\\n").join("*");
