@@ -65,7 +65,7 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
 <h1 class="firefly-font-heading" id="Index-Firefly-Heading">Firefly</h1>
 
 <section class="main-section" id="Index-Main-Section">
-    <div id="Map-Area" class="map widget widget-map"></div>
+    <div id="Map" class="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMn9h54D2apYR9hZWrTYXdeDMeaGRHeGs&callback=begin">
     </script>
 </section>
