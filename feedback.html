@@ -65,13 +65,13 @@
             team!</p>
         <div class="small-text" id="formInstructions"><em>Fields marked with an asterisk (*) are required.</em></div>
         <div class="contact-form-block form" id="Contact-Form-Block">
-            <form data-name="Contact Form" id="wf-form-Contact-Form" name="wf-form-Contact-Form">
+            <form data-name="Contact Form" id="wf-form-Contact-Form" name="wf-form-Contact-Form" action="saveFeedback.php" method="post">
                 <div class="contact-form-grid">
                     <div class="contact-form-div-block name" id="Contact-Form-Name-Div-Block">
                         <label class="field-label" for="Contact-Form-Name-Div-Block" id="Feedback-Name-Field-Label">Name *</label><input
                             autofocus="true" class="text-field input" data-name="Name" id="Feedback-Name-Text-Field"
                             maxlength="256"
-                            name="Name" placeholder="Your name" required="" type="text"></div>
+                            name="Name" placeholder="Your name" required="" type="text" ></div>
                     <div class="contact-form-div-block email" id="Contact-Form-Email-Div-Block">
                         <label class="field-label" for="Feedback-Email-Field-Label" id="Feedback-Email-Field-Label">Email *</label><input
                             class="text-field input" data-name="Email" id="Feedback-Email-Text-Field" maxlength="256"
