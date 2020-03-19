@@ -71,39 +71,49 @@
 <style>
 #rcorners2 {
   border-radius: 25px;
-  border: 2px solid #165cff;
+  box-shadow: 0 1px 3px 0 hsla(221.97424892703862, 100.00%, 54.31%, 1.00);
   padding: 20px;
-  width: 90%;
-  height: 30%;
-  background-color: #9ccaff;
+  width: max-content;
+  height: max-content;
+  max-width: 90%;
+  background-color: white;
   margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
+
 }
 .rcorners2 {
   border-radius: 25px;
-  border: 2px solid #165cff;
+  box-shadow: 0 1px 3px 0 hsla(221.97424892703862, 100.00%, 54.31%, 1.00);
   padding: 20px;
-  width: 90%;
-  height: 30%;
+  width: max-content;
+  height: max-content;
+  max-width: 90%;
   background-color: #9ccaff;
   margin-left: auto;
-    margin-right: auto;
+  margin-right: auto;
 }
 a{
 text-align: center;
+border-radius: 25px;
 position: center;
-background-color: #9ccaff;
-width: 100%;
-height: 10%;
-margin:0;
-padding:0;
+background-color: white;
+width: max-content;
+height: max-content;
+margin: 0;
+padding-inline :30px;
 text-decoration: none;
 color: black;
-font-size: 2.5rem;
+font-size: 2.25rem;
 display: block;
+box-shadow: 0 1px 3px 0 hsla(221.97424892703862, 100.00%, 54.31%, 1.00);
+margin-left: auto;
+margin-right: auto;
+
 }
 body{
-background-color: #fff;
+background-color: #fafafa;
+font-family: Arial, sans-serif;
+
 }
 img {
     display: block;
@@ -122,9 +132,10 @@ div{
 <p id="rcorners2">
 Send a request to a user:
                 <label>
-                    <input type="text" value="username" name="uname" id="rqUser" onfocus="if(value==='username'){value=''; this.style.color='#000'}" onblur="if(value===''){value='username'; this.style.color='#adadad'}">
+                    <input type="text" autofocus value="username" name="uname" id="rqUser" onfocus="if(value==='username'){value=''; this.style.color='#000'}" onblur="if(value===''){value='username'; this.style.color='#adadad'}">
                 </label>
-                <button type="button" onclick="makeRequestJS();">Send</button><br>Accepting/Sending an accepted request will share all map locations that either user has been to for both users
+                <button type="button" onclick="makeRequestJS();">Send</button>
+                <br><br>Accepting/Sending an accepted request will share all map locations that either user has been to for both users
  </p>
 <?php
 
