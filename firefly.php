@@ -11,7 +11,7 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
     <script type="text/javascript" src="map.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/firefly.css">
   </head>
   <body>
     <!-- Title section of the webpage -->
