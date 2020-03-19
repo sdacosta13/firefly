@@ -118,7 +118,7 @@ div{
 }
 </style>
 <body>
-<a href=firefly.html>Back</a>
+<a href=firefly.php>Back</a>
 <p id="rcorners2">
 Send a request to a user:
                 <label>
