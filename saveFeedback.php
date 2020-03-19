@@ -10,7 +10,7 @@
     $requestType = $_SERVER['REQUEST_METHOD'];
 	$name = $_POST['Name'];
 	$message = $_POST['Message'];
-    
+
     #The require_once line below was in the cs wiki page about connecting to MySQL
     #but for some reason it gives an error so I've just commented it out for now
 
@@ -50,8 +50,9 @@
 	function updateDBWithFeed($name, $email, $message, $selField,$conn, $testMsgs){
 		$SQL = "INSERT INTO feedback(name,email,userOption,message) VALUES ('$name', '$email', '$selField', '$message')";
 		doSQL($conn, $SQL, $testMsgs);
-		
+
 	}
 	updateDBWithFeed($name, $email, $message, $selField,$mysqli, $testMsgs);
-	
+	echo("<script type='text/javascript'>alert('Feedback received');location.href='feedback.html';</script>");
+
 	?>
