@@ -5,7 +5,7 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Firefly</title>
     <script type="text/javascript" src="map.js"></script>
