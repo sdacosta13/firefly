@@ -1,9 +1,17 @@
+<?php
+session_start();
+if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
+    die("You haven't logged in! <a href='index.html'>Back to home page</a>");
+}
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Firefly</title>
+    <script type="text/javascript" src="map.js"></script>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
@@ -18,11 +26,10 @@
         <div class="navbar-navlinks-section">
             <div class="navbar nav" data-animation="over-left" data-collapse="medium" data-duration="300">
                 <div class="main-navlinks-area container">
-                    <nav class="navbar-links nav-menu" role="navigation"><a aria-current="page" class="navlink nav-link -current"
-                                                                            href="index.html">Home</a><a
-                            class="navlink nav-link" href="features.html">Features</a><a class="navlink nav-link"
-                                                                                         href="meet-the-team.html">The
-                        Team</a><a class="navlink nav-link" href="feedback.html">Feedback</a></nav>
+                    <nav class="navbar-links nav-menu" role="navigation"><a aria-current="page" class="navlink nav-link"
+                                                                            href="index.html">Return to Index</a><a
+                            class="navlink nav-link" href="firefly.progress.html">Your Progress</a><a class="navlink nav-link"
+                                                                                        href="friends.php">Share location with Friends</a></nav>
                 </div>
                 <div class="menu-button-area nav-button"><img alt="" height="24" src="images/menu_icon.svg" width="24">
                 </div>
@@ -54,7 +61,14 @@
         </div>
     </div>
 </div>
+
 <h1 class="firefly-font-heading" id="Index-Firefly-Heading">Firefly</h1>
+
+<section class="main-section" id="Index-Main-Section">
+    <div class="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMn9h54D2apYR9hZWrTYXdeDMeaGRHeGs&callback=begin">
+    </script>
+</section>
 
 <footer class="footer">
     <div class="footer-flex-container">
