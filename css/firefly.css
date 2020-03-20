@@ -6,9 +6,99 @@ html, body, ul, li, a {
     font-family: Arial, sans-serif;
 }
 
+li {
+    text-align: center;
+}
+
 html, body {
   height: 100%;
 }
+
+.firefly-font-heading {
+    position: static;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: none;
+    clear: none;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-family: FashionFetishRegular, sans-serif;
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 400;
+    text-align: center;
+    color: black;
+}
+
+.firefly-slogan-heading {
+    position: static;
+    /* display: -webkit-box; */
+    /* display: -webkit-flex; */
+    /* display: -ms-flexbox; */
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    float: none;
+    clear: none;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-family: FashionFetishRegular, sans-serif;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 400;
+    text-align: center;
+    color: black;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+
+
+
 
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
@@ -25,14 +115,14 @@ label {
     align-items: center;
     width: 5rem;
     height: 2rem;
-    border: .3rem solid darkblue;
     border-radius: 1rem;
-    background-color: rgba(0,191,255, 0.6);
-    color: whitesmoke;
+    background-color: #efefef;
+    color: black;
+    box-shadow: 0 1px 3px 0 #165cff;
 }
 
 label:hover {
-    background-color: royalblue;
+    box-shadow: inset 0 -1px 3px 0 #000, inset 1px 1px 3px 0 #000;
 }
 
 input[type="checkbox"] {
@@ -42,20 +132,28 @@ input[type="checkbox"] {
 #sidebar {
     position: fixed;
     left: -50rem;
-    height: 100vh;
-    width: 28vw;
-    background-color: rgba(0,191,255, 0.6);
+    height: max-content;
+    width: max-content;
+    background-color: #e7e7e7;
     transition-property:all;
     transition-timing-function:ease;
     transition-duration: 1s;
     flex-shrink: 4;
-    color: white;
+    color: black;
+    border-radius: 0 0 10px 0;
+    padding-right: 20px;
+    padding-left: 20px;
+    box-shadow: 1px 1px 3px 0 #165cff, 1px 1px 3px 0 #165cff;
 }
+
+
 
 input[type="checkbox"]:checked + #sidebar {
     left: 0;
     top: 0;
 }
+
+
 
 ol {
     margin-top: 4rem;
@@ -63,6 +161,7 @@ ol {
     display: flex;
     flex-flow: column nowrap;
     font-size:0.9em;
+    padding-left: 0px;
 }
 
 img {
@@ -73,24 +172,28 @@ img {
 
 a{
   text-decoration: none;
-  padding: 30px 0;
-  color: white;
-  text-align: left;
-  border-top: 1px solid whitesmoke;
+  color: black;
+  text-align: center;
+  border-top: 1px solid #165cff40;
   display: block;
+  padding: 30px;
 }
+
 
 a:hover{
-  background: royalblue;
+    box-shadow: inset 0 -1px 3px 0 #165cff, inset 1px 1px 3px 0 #165cff;
 }
 
+
+
+
 li:last-child{
-  color:whitesmoke;
+  color:black;
   font-size: 1em;
   }
 
 li:nth-child(6){
-  color:whitesmoke;
+  color:black;
   font-size: 1.0em;
   padding: 30px 0;
 }
@@ -122,11 +225,8 @@ span{
 .bar > span {
   display: block;
   height: 100%;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 20px;
-  position: relative;
+    border-radius: 25px 25px 25px 20px;
+    position: relative;
 }
 
 
@@ -291,4 +391,76 @@ img.hover-shadow {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
+}
+
+
+
+@font-face {
+    font-family: 'Opendyslexic3';
+    src: url('../fonts/OpenDyslexic3-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Opendyslexic3';
+    src: url('../fonts/OpenDyslexic3-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FashionFetishRegular';
+    src: url('../fonts/FashionFetishRegular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Fashionfetishoutline';
+    src: url('../fonts/FashionFetishOutline.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FashionFetishLight';
+    src: url('../fonts/FashionFetishLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FashionFetishLightItalic';
+    src: url('../fonts/FashionFetishLightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FashionFetishItalic';
+    src: url('../fonts/FashionFetishItalic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Fashionfetishsmallcaps';
+    src: url('../fonts/FashionFetishSmallCaps.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FashionFetishBold';
+    src: url('../fonts/FashionFetishBold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FashionFetishHeavy';
+    src: url('../fonts/FashionFetishHeavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
 }

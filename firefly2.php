@@ -11,7 +11,7 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
 <head>
     <meta charset="utf-8">
     <title>Firefly</title>
-     <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="map.js"></script>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="css/main.css" rel="stylesheet" type="text/css">
     <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
@@ -65,7 +65,7 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
 <h1 class="firefly-font-heading" id="Index-Firefly-Heading">Firefly</h1>
 
 <section class="main-section" id="Index-Main-Section">
-    <div id="Map" class="map"></div>
+    <div class="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMn9h54D2apYR9hZWrTYXdeDMeaGRHeGs&callback=begin">
     </script>
 </section>

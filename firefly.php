@@ -15,8 +15,8 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
   </head>
   <body>
     <!-- Title section of the webpage -->
-    <h1> Firefly </h1>
-    <p> Light Up Manchester </p>
+    <h1 class="firefly-font-heading"> Firefly </h1>
+    <h2 class="firefly-slogan-heading"> Light Up Manchester </h2>
     <a href="index.html"> Return to homepage </a>
 
     <!--The div element for the map -->
@@ -25,20 +25,19 @@ if(!(isset($_SESSION['user']) && $_SESSION['user'] == true)){
     </script>
 
     <!-- Menu button and sidebar -->
-    <label for="show-menu">MENU</label>
+    <label for="show-menu">Menu</label>
     <input type="checkbox" id="show-menu">
     <div id="sidebar">
         <ol>
-            <li><a href="index.html">Return</a></li>
-            <li><br></li>
-            <li><a href="firefly.progress.html">Progress</a></li>
-            <li><br></li>
-            <li><a href="Friends.php">Share Location With Friends</a><li>
-            <li><a href="firefly.html">Close</a></li>
-            <li><br></li>
-            <li>Welcome back,</li>
+            <li><a href="index.html">Return to Index</a></li>
+            <li><a href="firefly.progress.html">Your Progress</a></li>
+            <a href="Friends.php" style="border-bottom: 1px solid #165cff40;">Share Location With Friends</a>            <br>
+            <br>
+            <br>
+            <li><br>Welcome back,</li>
+            <br>
+
             <li id = "welcome">user</li>
-            <li><br></li>
         </ol>
     </div>
 
